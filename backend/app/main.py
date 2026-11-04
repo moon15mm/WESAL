@@ -14,8 +14,15 @@ from sqlalchemy.exc import IntegrityError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.gzip import GZipMiddleware
 
+from decimal import Decimal
+
+from fastapi import encoders
+
 from app.core.config import settings
 from app.core.errors import AppError
+
+# Money is serialized as exact decimal strings (never binary floats).
+encoders.ENCODERS_BY_TYPE[Decimal] = lambda d: format(d, "f")
 from app.core.i18n import normalize_locale, t
 
 

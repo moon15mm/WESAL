@@ -114,6 +114,7 @@ def system_context(db: Session) -> Iterator[Session]:
         _apply_rls(db, db.connection())
     try:
         yield db
+        db.flush()  # writes made in the privileged context must hit the DB before RLS is restored
     finally:
         db.info["rls"] = previous
         if db.in_transaction():
