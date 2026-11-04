@@ -46,3 +46,21 @@ def test_localized_error_response(client):
     assert r.status_code == 401 and r.json()["error"]["message"] == "يلزم تسجيل الدخول."
     r = client.get("/api/v1/auth/me", headers={"accept-language": "hi-IN,hi;q=0.9"})
     assert r.json()["error"]["message"] == "कृपया साइन इन करें।"
+
+
+def test_legal_pages_seeded_and_served(client):
+    from tests.conftest import Api
+
+    api = Api(client)
+
+    slugs = sorted(p.stem for p in (pathlib.Path(__file__).parents[1] / "app/seed/legal/ar").glob("*.md"))
+    assert len(slugs) == 10
+    for slug in slugs:
+        for loc in ("ar", "en"):
+            r = api.get(f"/public/pages/{slug}", headers={"x-locale": loc})
+            assert r.status_code == 200, (slug, loc)
+            body = r.json()
+            assert body["locale"] == loc and len(body["body"]) > 300
+    # Urdu falls back to a published language rather than 404
+    r = api.get("/public/pages/terms", headers={"x-locale": "ur"})
+    assert r.status_code == 200 and r.json()["locale"] in ("ar", "en")

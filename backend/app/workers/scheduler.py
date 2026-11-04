@@ -96,11 +96,27 @@ def mark_missed_visits(db) -> int:
 
 
 def retention_cleanup(db) -> int:
-    """Data minimization: drop expired codes (7 days) and expired/revoked sessions (90 days)."""
+    """Data minimisation, as published in the data-retention policy:
+    verification codes 7 days after expiry, sessions 90 days after expiry, in-app notifications
+    after 12 months, sent/failed outbox deliveries after 90 days, contact messages after 24 months,
+    and visit GPS coordinates after 24 months (the visit record itself is kept)."""
+    from sqlalchemy import update
+
+    from app.models.crm import Visit
+    from app.models.enums import OutboxStatus
+    from app.models.system import ContactMessage, Notification, NotificationDelivery
+
     now = utcnow()
-    r1 = db.execute(delete(VerificationCode).where(VerificationCode.expires_at < now - timedelta(days=7))).rowcount
-    r2 = db.execute(delete(UserSession).where(UserSession.expires_at < now - timedelta(days=90))).rowcount
-    return (r1 or 0) + (r2 or 0)
+    n = 0
+    n += db.execute(delete(VerificationCode).where(VerificationCode.expires_at < now - timedelta(days=7))).rowcount or 0
+    n += db.execute(delete(UserSession).where(UserSession.expires_at < now - timedelta(days=90))).rowcount or 0
+    n += db.execute(delete(Notification).where(Notification.created_at < now - timedelta(days=365))).rowcount or 0
+    n += db.execute(delete(NotificationDelivery).where(NotificationDelivery.status.in_([OutboxStatus.sent, OutboxStatus.failed, OutboxStatus.skipped]),
+                                                       NotificationDelivery.created_at < now - timedelta(days=90))).rowcount or 0
+    n += db.execute(delete(ContactMessage).where(ContactMessage.created_at < now - timedelta(days=730))).rowcount or 0
+    n += db.execute(update(Visit).where(Visit.created_at < now - timedelta(days=730), Visit.start_lat.is_not(None))
+                    .values(start_lat=None, start_lng=None, end_lat=None, end_lng=None)).rowcount or 0
+    return n
 
 
 JOBS = [

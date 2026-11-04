@@ -10,7 +10,7 @@ from app.core.rbac import ALL_PERMISSIONS, SYSTEM_ROLES
 from app.models.business import City, Region
 from app.models.catalog import Category
 from app.models.identity import Permission, Role, RolePermission
-from app.models.system import Language, PlatformSetting, SubscriptionPlan
+from app.models.system import ContentPage, Language, PlatformSetting, SubscriptionPlan
 
 REGIONS = [
     ("RIY", "منطقة الرياض", "Riyadh Region", "ریاض ریجن", "रियाद क्षेत्र"),
@@ -173,3 +173,37 @@ def seed_reference(db: Session) -> None:
 
     for table in ("regions", "cities", "categories"):
         db.execute(text(f"SELECT setval(pg_get_serial_sequence('{table}', 'id'), (SELECT COALESCE(MAX(id), 1) FROM {table}))"))
+
+    seed_legal_pages(db)
+
+
+LEGAL_DIR = __import__("pathlib").Path(__file__).with_name("legal")
+
+
+def _parse_legal(path) -> tuple[str, str, str]:
+    raw = path.read_text(encoding="utf-8")
+    meta, body = {}, raw
+    if raw.startswith("---"):
+        _, front, body = raw.split("---", 2)
+        for line in front.strip().splitlines():
+            k, _, v = line.partition(":")
+            meta[k.strip()] = v.strip().strip('"')
+    return meta.get("title", path.stem), meta.get("version", "1.0"), body.strip() + "\n"
+
+
+def seed_legal_pages(db: Session) -> int:
+    """Load the bundled legal drafts (app/seed/legal/<locale>/<slug>.md) into content_pages.
+    A page edited by an administrator (updated_by set) is never overwritten."""
+    n = 0
+    for loc_dir in sorted(p for p in LEGAL_DIR.iterdir() if p.is_dir()):
+        for f in sorted(loc_dir.glob("*.md")):
+            title, version, body = _parse_legal(f)
+            row = db.scalar(select(ContentPage).where(ContentPage.slug == f.stem, ContentPage.locale == loc_dir.name))
+            if row is None:
+                db.add(ContentPage(slug=f.stem, locale=loc_dir.name, title=title, body=body, version=version))
+                n += 1
+            elif row.updated_by is None and (row.version != version or row.body != body):
+                row.title, row.body, row.version = title, body, version
+                n += 1
+    db.flush()
+    return n
