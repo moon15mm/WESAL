@@ -1,0 +1,19 @@
+{
+  "name": "وِصال | WESAL",
+  "short_name": "WESAL",
+  "description": "كل السوق في اتصال واحد — One Market. Connected.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/ar/app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#102B46",
+  "theme_color": "#102B46",
+  "categories": ["business", "shopping", "productivity"],
+  "icons": [
+    { "src": "/brand/png/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/brand/png/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
