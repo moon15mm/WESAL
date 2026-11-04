@@ -148,11 +148,11 @@ def _activate(email: str, *, business_verified: bool = True) -> None:
         db.commit()
 
 
-def _register(kind: str, email: str, name: str, city_id: int, **extra) -> _Client:
+def _register(kind: str, email: str, name: str, city_id: int, verified: bool = True, **extra) -> _Client:
     c = _Client()
     c.post("/auth/register", {"account_type": kind, "full_name": name, "email": email, "phone": _phone(), "password": DEMO_PASSWORD,
                               "locale": extra.pop("locale", "ar"), "accept_terms": True, "city_id": city_id, **extra})
-    _activate(email)
+    _activate(email, business_verified=verified)
     return c.login(email)
 
 
@@ -278,6 +278,15 @@ def seed_demo() -> None:
             st.post("/retailer/branches", {"name": bname, "city_id": city[bcity], "district": bdist, "address_line": f"{bdist}، شارع تجريبي"})
         stores[s["key"]] = st
         accounts.append((f"store · {s['en']}", email))
+
+    # a new supplier that submitted its documents and waits for platform verification
+    email = f"demo.supplier.pending@{DOMAIN}"
+    pend = _register("supplier", email, "مدير مؤسسة البيدر", city["riyadh"], verified=False, business_name_ar="مؤسسة البيدر التجارية",
+                     business_name_en="Al Baidar Trading Est.", cr_number=f"1010{rnd.randint(100000, 999999)}")
+    pend.form("/business/documents", data={"doc_type": "commercial_registration"},
+              files={"file": ("cr.png", _image("CR", (16, 43, 70), 11), "image/png")})
+    pend.post("/business/verification/submit")
+    accounts.append(("supplier awaiting verification", email))
 
     # customer price list + time-boxed promotion
     nok, waha, sun = sups["nokhba"], sups["waha"], sups["sunbula"]

@@ -48,7 +48,9 @@ export default function SupplierCommissions() {
       {tab === "list" ? (
         <>
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {["estimated", "due", "approved", "paid"].map((s) => <Stat key={s} label={t(`status.${s}`)} value={f.money(summary[s]?.amount || 0)} />)}
+            {([["expected", ["estimated", "pending"]], ["status.due", ["due"]], ["status.approved", ["approved"]], ["status.paid", ["paid", "adjusted"]]] as const).map(([label, ks]) => (
+              <Stat key={label} label={t(label)} value={f.money(ks.reduce((a, k) => a + Number(summary[k]?.amount || 0), 0))} />
+            ))}
           </div>
           <div className="my-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <Tabs value={status} onChange={(x) => { setStatus(x); list.reset(); }} items={["", "due", "approved", "paid", "disputed", "estimated", "pending"].map((s) => ({ value: s, label: s ? t(`status.${s}`) : t("all") }))} />

@@ -25,7 +25,7 @@ function TooltipBox({ active, payload, label, money }: { active?: boolean; paylo
 export function TrendChart({ data, x = "period", y = "value", money = true, height = 240 }: { data: Record<string, unknown>[]; x?: string; y?: string; money?: boolean; height?: number }) {
   const f = useFormat();
   const rtl = ["ar", "ur"].includes(useLocale());
-  const rows = data.map((d) => ({ ...d, [y]: Number(d[y] ?? 0), _label: f.date(d[x]) }));
+  const rows = data.map((d) => ({ ...d, [y]: Number(d[y] ?? 0), _label: String(f.date(d[x])).replace(/[\u200e\u200f\u061c]/g, "") }));
   return (
     <div style={{ height }} dir="ltr">
       <ResponsiveContainer width="100%" height="100%">

@@ -88,7 +88,7 @@ export function Stat({ label, value, hint, icon, trend, tone = "navy" }: { label
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-sm text-muted">{label}</p>
-          <p className="tabular mt-1.5 truncate text-2xl font-bold text-navy-700">{value}</p>
+          <p className="tabular mt-1.5 whitespace-nowrap text-lg font-bold leading-tight text-navy-700 sm:text-xl 2xl:text-2xl">{value}</p>
         </div>
         {icon && <div className={cx("flex h-10 w-10 shrink-0 items-center justify-center rounded-md", toneBg)}>{icon}</div>}
       </div>
