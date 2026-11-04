@@ -72,7 +72,7 @@ async def request_return(oid: uuid.UUID, request: Request, reason: str = Form(..
         for ri in r.items:
             pending[str(ri.order_item_id)] = pending.get(str(ri.order_item_id), 0) + (ri.approved_quantity or ri.quantity)
     rr = ReturnRequest(number=next_number(db, "RET"), order_id=o.id, retailer_id=o.retailer_id, supplier_id=o.supplier_id,
-                       requested_by=ctx.user.id, reason=reason, description=description)
+                       requested_by=ctx.user.id, reason=reason, description=description, evidence_file_ids=[])
     total = 0
     for line in lines:
         it = by_id.get(str(line.get("order_item_id")))

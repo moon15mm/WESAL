@@ -1,1 +1,430 @@
-{"errors":{"unauthorized":"Unauthorized"}}
+{
+ "ai": {
+  "summary": {
+   "avg_order": "Average order value SAR {avg}.",
+   "customers": "{active} active and {new} new customers.",
+   "pending_new": "{count} new orders await your review.",
+   "returns": "{count} returns worth SAR {value}.",
+   "sales_total": "Sales of SAR {sales} from {orders} orders.",
+   "top_product": "Best seller: {name} (SAR {value}).",
+   "top_rep": "Top representative: {name} (SAR {value})."
+  }
+ },
+ "brand": {
+  "name": "WESAL",
+  "tagline": "One Market. Connected."
+ },
+ "errors": {
+  "account_exists": "An account with these details already exists.",
+  "account_locked": "Account temporarily locked for {minutes} minutes after failed attempts.",
+  "account_suspended": "This account is suspended. Contact support.",
+  "acquisition_not_found": "No acquisition record.",
+  "admin_only": "Platform administrators only.",
+  "agreement_required": "Choose a commission agreement.",
+  "ai_disabled": "The assistant is currently disabled.",
+  "ai_not_configured": "AI provider not configured.",
+  "ai_provider_error": "AI provider error.",
+  "ai_provider_unreachable": "AI provider unreachable.",
+  "ai_rate_limited": "The assistant is busy. Try shortly.",
+  "all_languages_required": "Provide the name in all four languages.",
+  "already_linked": "Representative is already linked.",
+  "already_member": "User is already a member.",
+  "already_rated": "You already rated this order.",
+  "approved_document_required": "At least one document must be approved.",
+  "approved_exceeds_requested": "Approved exceeds requested quantity.",
+  "authorization_area_not_covered": "The store's area is outside the authorization.",
+  "authorization_closed": "This authorization is closed.",
+  "authorization_exists": "An open authorization already exists.",
+  "authorization_invalid_transition": "This authorization status change isn't allowed.",
+  "authorization_missing": "No valid authorization with this supplier.",
+  "authorization_no_order_rights": "This authorization doesn't allow creating orders.",
+  "authorization_not_effective": "The authorization isn't effective today.",
+  "authorization_product_not_covered": "Some products are outside the authorization.",
+  "authorization_suspended": "This authorization is suspended.",
+  "authorization_terms_changed": "The terms changed. Please review them again.",
+  "bad_request": "Invalid request.",
+  "barcode_exists": "Barcode belongs to another product.",
+  "below_min_order_qty": "Minimum for {product} is {min} pieces.",
+  "below_min_order_value": "Minimum order value is SAR {min}.",
+  "branch_not_allowed": "You can't order for this branch.",
+  "branch_required": "Add a branch first.",
+  "business_context_required": "Select which business you are working on.",
+  "business_exists": "This business is already registered.",
+  "business_name_required": "Business name is required.",
+  "business_suspended": "This business is suspended.",
+  "cannot_complain_about_self": "You can't complain about your own business.",
+  "cannot_deactivate_primary_branch": "The main branch can't be deactivated.",
+  "cannot_disable_self": "You can't disable yourself.",
+  "cannot_grant_owner": "Only an owner can grant the owner role.",
+  "cannot_revoke_own_admin": "You can't revoke your own admin role.",
+  "cannot_suspend_self": "You can't suspend yourself.",
+  "cart_empty": "The cart is empty.",
+  "category_exists": "Category exists.",
+  "code_attempts_exceeded": "Too many attempts. Request a new code.",
+  "code_invalid": "The code is invalid or expired.",
+  "collection_exceeds_total": "Collected amount exceeds the order total.",
+  "commission_closed": "Commission is cancelled.",
+  "commission_negative": "Commission can't be negative.",
+  "commission_not_approved": "Commission must be approved before payment.",
+  "commission_not_disputable": "This commission can't be disputed.",
+  "commission_not_due": "Commission is not due yet.",
+  "complaint_closed": "This complaint is closed.",
+  "conflict": "This conflicts with existing data.",
+  "contact_verification_required": "Verify your email or mobile before placing orders.",
+  "cr_document_required": "Upload the commercial registration document.",
+  "cr_number_required": "Commercial registration number is required.",
+  "csrf_failed": "Security token expired. Reload the page.",
+  "csv_encoding": "The file must be UTF-8 encoded.",
+  "csv_missing_columns": "Missing columns: {columns}",
+  "customer_exists": "Customer already exists.",
+  "customer_not_registered": "Customer isn't registered on the platform.",
+  "default_language_required": "The default language can't be disabled.",
+  "dispute_closed": "Dispute is closed.",
+  "dispute_exists": "An open dispute exists.",
+  "duplicate_coverage": "Duplicate coverage area.",
+  "duplicate_items": "Duplicate items.",
+  "email_not_configured": "Email service is not configured.",
+  "email_required": "Email is required.",
+  "error": "An error occurred.",
+  "file_empty": "The file is empty.",
+  "file_invalid_image": "The image is invalid.",
+  "file_invalid_path": "Invalid file path.",
+  "file_too_large": "File exceeds {max_mb} MB.",
+  "file_type_not_allowed": "File type not allowed.",
+  "file_unsafe_content": "The file contains unsafe content.",
+  "forbidden": "Not allowed.",
+  "id_document_required": "Upload your ID or Iqama first.",
+  "identifier_required": "Enter an email or mobile number.",
+  "insufficient_stock": "Available stock for {product}: {available}",
+  "integration_unavailable": "The external service is unavailable.",
+  "internal_error": "Unexpected error. It has been logged.",
+  "invalid_agreement": "Invalid commission agreement.",
+  "invalid_branch": "Invalid branch.",
+  "invalid_brand": "Invalid brand.",
+  "invalid_business_context": "Invalid business context.",
+  "invalid_category": "Invalid category.",
+  "invalid_city": "Invalid city.",
+  "invalid_credentials": "Invalid sign-in details.",
+  "invalid_customer": "Invalid customer.",
+  "invalid_dates": "Invalid dates.",
+  "invalid_delivery_days": "Invalid delivery days.",
+  "invalid_discount": "Invalid discount.",
+  "invalid_document": "Invalid document.",
+  "invalid_document_type": "Invalid document type.",
+  "invalid_ids": "Invalid identifiers.",
+  "invalid_item": "Invalid order line.",
+  "invalid_items": "Invalid lines.",
+  "invalid_manager": "The selected manager is not a member.",
+  "invalid_offer": "This product isn't available from this supplier.",
+  "invalid_order": "Invalid order.",
+  "invalid_payment": "Invalid payment details.",
+  "invalid_permissions": "Invalid permissions.",
+  "invalid_phone": "Invalid mobile number.",
+  "invalid_product": "Invalid product.",
+  "invalid_quantity": "Invalid quantity.",
+  "invalid_reason": "Invalid reason.",
+  "invalid_representative": "Invalid representative.",
+  "invalid_retailer": "Invalid store.",
+  "invalid_role": "Invalid role.",
+  "invalid_setting": "Invalid setting.",
+  "invalid_subscription": "Invalid subscription.",
+  "invalid_supplier": "Supplier not available.",
+  "invalid_timezone": "Invalid time zone.",
+  "invalid_transition": "This action isn't possible in the current status.",
+  "last_owner": "The last owner can't be removed.",
+  "method_not_allowed": "Method not allowed.",
+  "mfa_already_enabled": "Two-factor authentication is already enabled.",
+  "mfa_invalid": "Invalid verification code.",
+  "mfa_required": "Two-factor code required.",
+  "mfa_setup_required": "Enable two-factor authentication to access administration.",
+  "name_required": "Name is required.",
+  "no_business_context": "No business account is linked to you.",
+  "no_changes": "No changes.",
+  "no_pending_approval": "No pending approval.",
+  "no_pending_offer": "No pending offer.",
+  "no_target_for_channel": "No contact address for this channel.",
+  "not_a_member": "You are not a member of this business.",
+  "not_a_representative": "This account is not a representative account.",
+  "not_allowed": "Not allowed.",
+  "not_found": "Not found.",
+  "nothing_to_verify": "Nothing to verify.",
+  "offer_exists": "This product is already in your catalog.",
+  "offer_expired": "The offer has expired.",
+  "offer_unavailable": "Unavailable: {product}",
+  "only_store_can_dispute": "Only the store can open an order dispute.",
+  "order_empty": "The order is empty.",
+  "order_has_no_representative": "This order has no representative.",
+  "order_invalid_transition": "This action isn't possible for the order's current status.",
+  "order_not_collectable": "Collection can't be recorded for this order.",
+  "order_not_disputable": "A dispute can't be opened for this order.",
+  "order_not_editable": "The order can't be edited now.",
+  "order_not_rateable": "You can rate after the order is completed.",
+  "order_not_returnable": "This order can't be returned.",
+  "order_required": "Select the order.",
+  "order_version_changed": "The order changed since you opened it. Review the latest version and approve again.",
+  "otp_required": "Enter the code sent to your mobile.",
+  "permission_denied": "You don't have permission for this action.",
+  "phone_required": "Mobile number is required.",
+  "phone_verification_required": "Mobile number verification required.",
+  "product_identity_locked": "This product's master data is managed by another party.",
+  "push_library_missing": "Push library missing.",
+  "push_not_configured": "Push notifications are not configured.",
+  "rate_limited": "Too many attempts. Try again in {retry_after} seconds.",
+  "reason_required": "Provide a reason.",
+  "received_exceeds_ordered": "Received quantity exceeds ordered.",
+  "representative_inactive": "Representative account is inactive.",
+  "representative_not_linked": "This representative isn't linked to your company.",
+  "representative_not_verified": "The representative account must be verified first.",
+  "request_exists": "You already have an open request of this type.",
+  "resolution_required": "Write the resolution.",
+  "return_exceeds_received": "Return exceeds received quantity: {product}",
+  "return_invalid_transition": "Not possible for this return's status.",
+  "return_window_closed": "The return window ({days} days) has passed.",
+  "role_exists": "A role with this code exists.",
+  "role_missing": "System role missing.",
+  "sale_unit_required": "Choose at least one sale unit.",
+  "single_representative_required": "Select commissions of a single representative.",
+  "sms_not_configured": "SMS service is not configured.",
+  "supplier_not_covering_area": "The supplier doesn't deliver to this branch's area.",
+  "terms_required": "You must accept the terms and privacy policy.",
+  "too_many_codes": "Too many codes requested. Try later.",
+  "too_many_files": "Too many files.",
+  "too_many_items": "Too many items.",
+  "unauthorized": "Please sign in.",
+  "unit_not_allowed": "Sale unit not available: {product}",
+  "validation_failed": "Please check the submitted data.",
+  "verification_already_submitted": "Verification already submitted.",
+  "visit_already_in_progress": "You have a visit in progress. End it first.",
+  "visit_invalid_transition": "Not possible for this visit.",
+  "weak_password": "Weak password: at least 10 characters mixing upper/lower case, digits or symbols.",
+  "whatsapp_not_configured": "WhatsApp service is not configured."
+ },
+ "messages": {
+  "login_otp": {
+   "body": "Your WESAL sign-in code: {code}. Don't share it.",
+   "subject": "Sign-in code"
+  },
+  "order_approval": {
+   "body": "WESAL order approval code: {code}",
+   "subject": "Order approval code"
+  },
+  "reset_password": {
+   "body": "To reset your password open:\n{link}\nor use the code: {code}\nIf you didn't request this, ignore this message.",
+   "subject": "Reset your password"
+  },
+  "verify_email": {
+   "body": "Your verification code: {code}\nValid for {minutes} minutes. Don't share it.",
+   "subject": "Your WESAL email verification code"
+  },
+  "verify_phone": {
+   "body": "WESAL verification code: {code} (valid {minutes} min)",
+   "subject": "WESAL code"
+  }
+ },
+ "notifications": {
+  "account_registered": {
+   "body": "Hi {name}, your account is ready. Complete verification to get started.",
+   "title": "Welcome to WESAL"
+  },
+  "account_rejected": {
+   "body": "{name} was not verified: {reason}",
+   "title": "Verification declined"
+  },
+  "account_verified": {
+   "body": "{name} is verified. You can now trade on the marketplace.",
+   "title": "Account verified"
+  },
+  "authorization_activated": {
+   "body": "{representative} accepted authorization {number}.",
+   "title": "Authorization active"
+  },
+  "authorization_declined": {
+   "body": "{supplier} declined request {number}.",
+   "title": "Authorization request declined"
+  },
+  "authorization_expiring": {
+   "body": "Authorization {number} ends on {date}.",
+   "title": "Authorization expiring"
+  },
+  "authorization_issued": {
+   "body": "{supplier} issued authorization {number}. Review and accept the terms.",
+   "title": "Authorization awaiting your acceptance"
+  },
+  "authorization_requested": {
+   "body": "{representative} requested an authorization ({number}).",
+   "title": "New authorization request"
+  },
+  "authorization_status_changed": {
+   "body": "Authorization {number} is now {status}.",
+   "title": "Authorization updated"
+  },
+  "commission_paid": {
+   "body": "{supplier} recorded a payout of SAR {amount}.",
+   "title": "Commission paid"
+  },
+  "commission_updated": {
+   "body": "Your commission SAR {amount} - status: {status}.",
+   "title": "Commission update"
+  },
+  "complaint_new": {
+   "body": "Complaint {number}: {subject}",
+   "title": "New complaint"
+  },
+  "complaint_reply": {
+   "body": "There's a new reply on complaint {number}.",
+   "title": "Complaint reply"
+  },
+  "dispute_new": {
+   "body": "{representative} disputed a commission of SAR {amount}.",
+   "title": "New commission dispute"
+  },
+  "document_reviewed": {
+   "body": "Your document was reviewed.",
+   "title": "Document reviewed"
+  },
+  "order_approval_required": {
+   "body": "Order {number} from {supplier} (SAR {total}) needs your approval.",
+   "title": "Order needs your approval"
+  },
+  "order_approved": {
+   "body": "Order {number} was approved.",
+   "title": "Order approved"
+  },
+  "order_cancelled": {
+   "body": "Order {number} was cancelled.",
+   "title": "Order cancelled"
+  },
+  "order_changes_requested": {
+   "body": "{retailer} requested changes to order {number}.",
+   "title": "Changes requested"
+  },
+  "order_completed": {
+   "body": "Order {number} is completed.",
+   "title": "Order completed"
+  },
+  "order_delivered": {
+   "body": "Order {number} was delivered. Please confirm receipt.",
+   "title": "Order delivered"
+  },
+  "order_new": {
+   "body": "New order {number} from {retailer}, SAR {total}.",
+   "title": "New order"
+  },
+  "order_offer": {
+   "body": "{supplier} sent an offer for order {number}: SAR {total}.",
+   "title": "New price offer"
+  },
+  "order_out_for_delivery": {
+   "body": "Order {number} is out for delivery.",
+   "title": "Order on the way"
+  },
+  "order_preparing": {
+   "body": "Order {number} is being prepared.",
+   "title": "Order being prepared"
+  },
+  "order_rejected": {
+   "body": "Order {number} was rejected.",
+   "title": "Order rejected"
+  },
+  "order_updated": {
+   "body": "Order {number} was updated.",
+   "title": "Order updated"
+  },
+  "rating_received": {
+   "body": "You received {stars}/5 on order {number}.",
+   "title": "New rating"
+  },
+  "return_decided": {
+   "body": "Return {number}: {decision}.",
+   "title": "Return decision"
+  },
+  "return_requested": {
+   "body": "{retailer} requested return {number} for order {order}.",
+   "title": "Return requested"
+  },
+  "task_assigned": {
+   "body": "Task from {supplier}: {title}",
+   "title": "New task"
+  },
+  "team_invite": {
+   "body": "You were added to {business} as {role}.",
+   "title": "You've been added"
+  }
+ },
+ "order_status": {
+  "approved": "Approved",
+  "awaiting_retailer_approval": "Awaiting store approval of changes",
+  "cancelled": "Cancelled",
+  "completed": "Completed",
+  "delivered": "Delivered",
+  "disputed": "In dispute",
+  "draft": "Draft",
+  "fully_returned": "Fully returned",
+  "new": "New",
+  "out_for_delivery": "Out for delivery",
+  "partially_returned": "Partially returned",
+  "pending_retailer_approval": "Awaiting store approval",
+  "preparing": "Preparing",
+  "quoted": "Quote submitted",
+  "ready": "Ready",
+  "rejected": "Rejected",
+  "supplier_review": "Under supplier review"
+ },
+ "pdf": {
+  "approval": "Approval record",
+  "approved_at": "Approved at",
+  "branch": "Branch",
+  "buyer": "Buyer",
+  "cr": "CR",
+  "date": "Date",
+  "delivery_fee": "Delivery fee",
+  "disclaimer": "This document is an order summary issued by the WESAL platform and is not a tax invoice. Tax invoices are issued by the supplier in line with ZATCA requirements. Payment is made directly between the store and the supplier.",
+  "discount": "Discount",
+  "fingerprint": "Approved version fingerprint",
+  "generated_at": "Generated",
+  "item": "Item",
+  "items": "Items",
+  "line_total": "Total",
+  "method": "Verification",
+  "methods": {
+   "otp": "SMS code",
+   "password": "Password",
+   "session": "Authenticated session"
+  },
+  "order_title": "Purchase order summary",
+  "qty": "Qty",
+  "representative": "Representative",
+  "status": "Status",
+  "subtotal": "Subtotal",
+  "supplier": "Supplier",
+  "total": "Total due",
+  "unit": "Unit",
+  "unit_price": "Unit price",
+  "vat": "VAT",
+  "vat_number": "VAT No.",
+  "version": "Version"
+ },
+ "reports": {
+  "by_city": "By city",
+  "by_supplier": "By supplier",
+  "city": "City",
+  "commission": "Commission",
+  "orders": "Orders",
+  "over_time": "Over time",
+  "period": "Period",
+  "pieces": "Pieces",
+  "product": "Product",
+  "rep_title": "Representative performance report",
+  "representative": "Representative",
+  "representatives": "Representatives",
+  "retailer_title": "Purchases report",
+  "supplier": "Supplier",
+  "supplier_title": "Sales report",
+  "top_products": "Top products",
+  "value": "Value (SAR)"
+ },
+ "units": {
+  "carton": "Carton",
+  "piece": "Piece"
+ }
+}

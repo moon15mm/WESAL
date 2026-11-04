@@ -55,7 +55,7 @@ engine = create_engine(
     max_overflow=settings.db_max_overflow,
     future=True,
 )
-SessionLocal = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
+SessionLocal = sessionmaker(bind=engine, autoflush=True, expire_on_commit=False)
 
 
 def _apply_rls(session: Session, connection) -> None:

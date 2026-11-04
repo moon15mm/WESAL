@@ -1,0 +1,430 @@
+{
+ "ai": {
+  "summary": {
+   "avg_order": "औसत ऑर्डर मूल्य SAR {avg}।",
+   "customers": "{active} सक्रिय और {new} नए ग्राहक।",
+   "pending_new": "{count} नए ऑर्डर आपकी समीक्षा की प्रतीक्षा में।",
+   "returns": "SAR {value} की {count} वापसियाँ।",
+   "sales_total": "{orders} ऑर्डर से SAR {sales} की बिक्री।",
+   "top_product": "सर्वाधिक बिक्री: {name} (SAR {value})।",
+   "top_rep": "शीर्ष प्रतिनिधि: {name} (SAR {value})।"
+  }
+ },
+ "brand": {
+  "name": "वेसाल",
+  "tagline": "पूरा बाज़ार, एक जुड़ाव"
+ },
+ "errors": {
+  "account_exists": "इन विवरणों वाला खाता पहले से मौजूद है।",
+  "account_locked": "असफल प्रयासों के कारण खाता {minutes} मिनट के लिए लॉक है।",
+  "account_suspended": "यह खाता निलंबित है। सहायता से संपर्क करें।",
+  "acquisition_not_found": "अधिग्रहण रिकॉर्ड नहीं।",
+  "admin_only": "केवल प्लेटफ़ॉर्म व्यवस्थापकों के लिए।",
+  "agreement_required": "कमीशन समझौता चुनें।",
+  "ai_disabled": "सहायक अभी निष्क्रिय है।",
+  "ai_not_configured": "एआई प्रदाता कॉन्फ़िगर नहीं।",
+  "ai_provider_error": "एआई प्रदाता त्रुटि।",
+  "ai_provider_unreachable": "एआई प्रदाता तक पहुँच नहीं।",
+  "ai_rate_limited": "सहायक व्यस्त है। थोड़ी देर बाद प्रयास करें।",
+  "all_languages_required": "चारों भाषाओं में नाम दें।",
+  "already_linked": "प्रतिनिधि पहले से जुड़ा है।",
+  "already_member": "उपयोगकर्ता पहले से सदस्य है।",
+  "already_rated": "आप पहले ही रेटिंग दे चुके हैं।",
+  "approved_document_required": "कम से कम एक दस्तावेज़ स्वीकृत होना चाहिए।",
+  "approved_exceeds_requested": "स्वीकृत मात्रा अनुरोध से अधिक है।",
+  "authorization_area_not_covered": "दुकान का क्षेत्र प्राधिकरण से बाहर है।",
+  "authorization_closed": "यह प्राधिकरण बंद है।",
+  "authorization_exists": "एक खुला प्राधिकरण पहले से मौजूद है।",
+  "authorization_invalid_transition": "प्राधिकरण स्थिति इस तरह नहीं बदल सकती।",
+  "authorization_missing": "इस आपूर्तिकर्ता के साथ कोई मान्य प्राधिकरण नहीं।",
+  "authorization_no_order_rights": "यह प्राधिकरण ऑर्डर बनाने की अनुमति नहीं देता।",
+  "authorization_not_effective": "प्राधिकरण आज प्रभावी नहीं है।",
+  "authorization_product_not_covered": "कुछ उत्पाद प्राधिकरण से बाहर हैं।",
+  "authorization_suspended": "यह प्राधिकरण निलंबित है।",
+  "authorization_terms_changed": "शर्तें बदल गई हैं। फिर से समीक्षा करें।",
+  "bad_request": "अमान्य अनुरोध।",
+  "barcode_exists": "बारकोड किसी अन्य उत्पाद का है।",
+  "below_min_order_qty": "{product} की न्यूनतम मात्रा {min} है।",
+  "below_min_order_value": "न्यूनतम ऑर्डर मूल्य SAR {min} है।",
+  "branch_not_allowed": "आप इस शाखा के लिए ऑर्डर नहीं कर सकते।",
+  "branch_required": "पहले शाखा जोड़ें।",
+  "business_context_required": "वह व्यवसाय चुनें जिस पर आप काम कर रहे हैं।",
+  "business_exists": "यह व्यवसाय पहले से पंजीकृत है।",
+  "business_name_required": "व्यवसाय का नाम आवश्यक है।",
+  "business_suspended": "यह व्यवसाय निलंबित है।",
+  "cannot_complain_about_self": "आप अपने व्यवसाय की शिकायत नहीं कर सकते।",
+  "cannot_deactivate_primary_branch": "मुख्य शाखा निष्क्रिय नहीं हो सकती।",
+  "cannot_disable_self": "आप स्वयं को निष्क्रिय नहीं कर सकते।",
+  "cannot_grant_owner": "केवल मालिक ही मालिक की भूमिका दे सकता है।",
+  "cannot_revoke_own_admin": "आप अपनी व्यवस्थापक भूमिका वापस नहीं ले सकते।",
+  "cannot_suspend_self": "आप स्वयं को निलंबित नहीं कर सकते।",
+  "cart_empty": "कार्ट खाली है।",
+  "category_exists": "श्रेणी मौजूद है।",
+  "code_attempts_exceeded": "बहुत अधिक प्रयास। नया कोड मांगें।",
+  "code_invalid": "कोड अमान्य या समाप्त है।",
+  "collection_exceeds_total": "वसूली राशि ऑर्डर कुल से अधिक है।",
+  "commission_closed": "कमीशन रद्द है।",
+  "commission_negative": "कमीशन ऋणात्मक नहीं हो सकता।",
+  "commission_not_approved": "भुगतान से पहले कमीशन स्वीकृत होना चाहिए।",
+  "commission_not_disputable": "इस कमीशन पर आपत्ति नहीं हो सकती।",
+  "commission_not_due": "कमीशन अभी देय नहीं।",
+  "complaint_closed": "यह शिकायत बंद है।",
+  "conflict": "मौजूदा डेटा से टकराव है।",
+  "contact_verification_required": "ऑर्डर से पहले अपना ईमेल या मोबाइल सत्यापित करें।",
+  "cr_document_required": "वाणिज्यिक पंजीकरण दस्तावेज़ अपलोड करें।",
+  "cr_number_required": "वाणिज्यिक पंजीकरण संख्या आवश्यक है।",
+  "csrf_failed": "सुरक्षा टोकन समाप्त। पेज पुनः लोड करें।",
+  "csv_encoding": "फ़ाइल UTF-8 में होनी चाहिए।",
+  "csv_missing_columns": "गायब कॉलम: {columns}",
+  "customer_exists": "ग्राहक पहले से मौजूद है।",
+  "customer_not_registered": "ग्राहक प्लेटफ़ॉर्म पर पंजीकृत नहीं।",
+  "default_language_required": "डिफ़ॉल्ट भाषा निष्क्रिय नहीं हो सकती।",
+  "dispute_closed": "आपत्ति बंद है।",
+  "dispute_exists": "एक खुली आपत्ति मौजूद है।",
+  "duplicate_coverage": "कवरेज क्षेत्र दोहराया गया।",
+  "duplicate_items": "आइटम दोहराए गए हैं।",
+  "email_not_configured": "ईमेल सेवा कॉन्फ़िगर नहीं है।",
+  "email_required": "ईमेल आवश्यक है।",
+  "error": "एक त्रुटि हुई।",
+  "file_empty": "फ़ाइल खाली है।",
+  "file_invalid_image": "छवि अमान्य है।",
+  "file_invalid_path": "फ़ाइल पथ अमान्य है।",
+  "file_too_large": "फ़ाइल {max_mb} MB से बड़ी है।",
+  "file_type_not_allowed": "फ़ाइल प्रकार की अनुमति नहीं।",
+  "file_unsafe_content": "फ़ाइल में असुरक्षित सामग्री है।",
+  "forbidden": "अनुमति नहीं है।",
+  "id_document_required": "पहले अपना आईडी या इक़ामा अपलोड करें।",
+  "identifier_required": "ईमेल या मोबाइल नंबर दर्ज करें।",
+  "insufficient_stock": "{product} का उपलब्ध स्टॉक: {available}",
+  "integration_unavailable": "बाहरी सेवा उपलब्ध नहीं है।",
+  "internal_error": "अप्रत्याशित त्रुटि। इसे दर्ज कर लिया गया है।",
+  "invalid_agreement": "कमीशन समझौता अमान्य है।",
+  "invalid_branch": "शाखा अमान्य है।",
+  "invalid_brand": "ब्रांड अमान्य है।",
+  "invalid_business_context": "व्यावसायिक संदर्भ अमान्य है।",
+  "invalid_category": "श्रेणी अमान्य है।",
+  "invalid_city": "शहर अमान्य है।",
+  "invalid_credentials": "साइन-इन विवरण गलत हैं।",
+  "invalid_customer": "ग्राहक अमान्य है।",
+  "invalid_dates": "तिथियाँ अमान्य हैं।",
+  "invalid_delivery_days": "डिलीवरी के दिन अमान्य हैं।",
+  "invalid_discount": "छूट अमान्य है।",
+  "invalid_document": "दस्तावेज़ अमान्य है।",
+  "invalid_document_type": "दस्तावेज़ प्रकार अमान्य है।",
+  "invalid_ids": "पहचानकर्ता अमान्य हैं।",
+  "invalid_item": "ऑर्डर लाइन अमान्य है।",
+  "invalid_items": "लाइनें अमान्य हैं।",
+  "invalid_manager": "चयनित प्रबंधक सदस्य नहीं है।",
+  "invalid_offer": "यह उत्पाद इस आपूर्तिकर्ता से उपलब्ध नहीं।",
+  "invalid_order": "ऑर्डर अमान्य है।",
+  "invalid_payment": "भुगतान विवरण अमान्य हैं।",
+  "invalid_permissions": "अनुमतियाँ अमान्य हैं।",
+  "invalid_phone": "मोबाइल नंबर अमान्य है।",
+  "invalid_product": "उत्पाद अमान्य है।",
+  "invalid_quantity": "मात्रा अमान्य है।",
+  "invalid_reason": "कारण अमान्य है।",
+  "invalid_representative": "प्रतिनिधि अमान्य है।",
+  "invalid_retailer": "दुकान अमान्य है।",
+  "invalid_role": "भूमिका अमान्य है।",
+  "invalid_setting": "सेटिंग अमान्य है।",
+  "invalid_subscription": "सदस्यता अमान्य है।",
+  "invalid_supplier": "आपूर्तिकर्ता उपलब्ध नहीं।",
+  "invalid_timezone": "समय क्षेत्र अमान्य है।",
+  "invalid_transition": "वर्तमान स्थिति में यह कार्य संभव नहीं।",
+  "last_owner": "अंतिम मालिक को हटाया नहीं जा सकता।",
+  "method_not_allowed": "विधि की अनुमति नहीं।",
+  "mfa_already_enabled": "दो-चरणीय प्रमाणीकरण पहले से सक्षम है।",
+  "mfa_invalid": "सत्यापन कोड गलत है।",
+  "mfa_required": "दो-चरणीय कोड आवश्यक है।",
+  "mfa_setup_required": "प्रशासन तक पहुँच के लिए दो-चरणीय प्रमाणीकरण सक्षम करें।",
+  "name_required": "नाम आवश्यक है।",
+  "no_business_context": "आपसे कोई व्यावसायिक खाता जुड़ा नहीं है।",
+  "no_changes": "कोई बदलाव नहीं।",
+  "no_pending_approval": "कोई लंबित स्वीकृति नहीं।",
+  "no_pending_offer": "कोई लंबित प्रस्ताव नहीं।",
+  "no_target_for_channel": "इस चैनल के लिए संपर्क नहीं है।",
+  "not_a_member": "आप इस व्यवसाय के सदस्य नहीं हैं।",
+  "not_a_representative": "यह प्रतिनिधि खाता नहीं है।",
+  "not_allowed": "अनुमति नहीं।",
+  "not_found": "नहीं मिला।",
+  "nothing_to_verify": "सत्यापन के लिए कुछ नहीं।",
+  "offer_exists": "यह उत्पाद पहले से आपकी सूची में है।",
+  "offer_expired": "प्रस्ताव समाप्त हो चुका है।",
+  "offer_unavailable": "उपलब्ध नहीं: {product}",
+  "only_store_can_dispute": "केवल दुकान ही विवाद खोल सकती है।",
+  "order_empty": "ऑर्डर खाली है।",
+  "order_has_no_representative": "इस ऑर्डर में कोई प्रतिनिधि नहीं।",
+  "order_invalid_transition": "ऑर्डर की वर्तमान स्थिति में यह कार्य संभव नहीं।",
+  "order_not_collectable": "इस ऑर्डर की वसूली दर्ज नहीं हो सकती।",
+  "order_not_disputable": "इस ऑर्डर पर विवाद नहीं खोला जा सकता।",
+  "order_not_editable": "ऑर्डर अभी संपादित नहीं हो सकता।",
+  "order_not_rateable": "ऑर्डर पूरा होने के बाद रेटिंग दें।",
+  "order_not_returnable": "यह ऑर्डर लौटाया नहीं जा सकता।",
+  "order_required": "ऑर्डर चुनें।",
+  "order_version_changed": "आपके खोलने के बाद ऑर्डर बदल गया। नवीनतम संस्करण देखकर स्वीकृति दें।",
+  "otp_required": "अपने मोबाइल पर भेजा गया कोड दर्ज करें।",
+  "permission_denied": "आपको इस कार्य की अनुमति नहीं है।",
+  "phone_required": "मोबाइल नंबर आवश्यक है।",
+  "phone_verification_required": "मोबाइल नंबर सत्यापन आवश्यक है।",
+  "product_identity_locked": "इस उत्पाद का मास्टर डेटा कोई और संभालता है।",
+  "push_library_missing": "पुश लाइब्रेरी उपलब्ध नहीं।",
+  "push_not_configured": "पुश सूचनाएँ कॉन्फ़िगर नहीं हैं।",
+  "rate_limited": "बहुत अधिक प्रयास। {retry_after} सेकंड बाद प्रयास करें।",
+  "reason_required": "कारण बताएँ।",
+  "received_exceeds_ordered": "प्राप्त मात्रा ऑर्डर से अधिक है।",
+  "representative_inactive": "प्रतिनिधि खाता निष्क्रिय है।",
+  "representative_not_linked": "यह प्रतिनिधि आपकी कंपनी से जुड़ा नहीं है।",
+  "representative_not_verified": "प्रतिनिधि खाता पहले सत्यापित होना चाहिए।",
+  "request_exists": "आपका इस प्रकार का अनुरोध खुला है।",
+  "resolution_required": "समाधान लिखें।",
+  "return_exceeds_received": "वापसी प्राप्त मात्रा से अधिक है: {product}",
+  "return_invalid_transition": "इस वापसी की स्थिति में यह संभव नहीं।",
+  "return_window_closed": "वापसी अवधि ({days} दिन) समाप्त हो गई।",
+  "role_exists": "इस कोड वाली भूमिका मौजूद है।",
+  "role_missing": "सिस्टम भूमिका उपलब्ध नहीं।",
+  "sale_unit_required": "कम से कम एक बिक्री इकाई चुनें।",
+  "single_representative_required": "एक ही प्रतिनिधि के कमीशन चुनें।",
+  "sms_not_configured": "एसएमएस सेवा कॉन्फ़िगर नहीं है।",
+  "supplier_not_covering_area": "आपूर्तिकर्ता इस शाखा के क्षेत्र में डिलीवर नहीं करता।",
+  "terms_required": "शर्तें और गोपनीयता नीति स्वीकार करना आवश्यक है।",
+  "too_many_codes": "बहुत अधिक कोड मांगे गए। बाद में प्रयास करें।",
+  "too_many_files": "बहुत अधिक फ़ाइलें।",
+  "too_many_items": "बहुत अधिक आइटम।",
+  "unauthorized": "कृपया साइन इन करें।",
+  "unit_not_allowed": "बिक्री इकाई उपलब्ध नहीं: {product}",
+  "validation_failed": "कृपया दर्ज डेटा जाँचें।",
+  "verification_already_submitted": "सत्यापन पहले ही जमा है।",
+  "visit_already_in_progress": "आपकी एक विज़िट चल रही है। पहले उसे समाप्त करें।",
+  "visit_invalid_transition": "इस विज़िट के लिए संभव नहीं।",
+  "weak_password": "कमज़ोर पासवर्ड: कम से कम 10 अक्षर, बड़े/छोटे अक्षर, अंक या चिह्न।",
+  "whatsapp_not_configured": "व्हाट्सऐप सेवा कॉन्फ़िगर नहीं है।"
+ },
+ "messages": {
+  "login_otp": {
+   "body": "वेसाल साइन-इन कोड: {code}। किसी को न बताएँ।",
+   "subject": "साइन-इन कोड"
+  },
+  "order_approval": {
+   "body": "वेसाल ऑर्डर स्वीकृति कोड: {code}",
+   "subject": "ऑर्डर स्वीकृति कोड"
+  },
+  "reset_password": {
+   "body": "पासवर्ड रीसेट करने के लिए लिंक खोलें:\n{link}\nया कोड: {code}\nयदि आपने अनुरोध नहीं किया तो अनदेखा करें।",
+   "subject": "पासवर्ड रीसेट"
+  },
+  "verify_email": {
+   "body": "आपका सत्यापन कोड: {code}\n{minutes} मिनट के लिए मान्य। किसी को न बताएँ।",
+   "subject": "वेसाल ईमेल सत्यापन कोड"
+  },
+  "verify_phone": {
+   "body": "वेसाल सत्यापन कोड: {code} ({minutes} मिनट)",
+   "subject": "वेसाल कोड"
+  }
+ },
+ "notifications": {
+  "account_registered": {
+   "body": "{name}, आपका खाता तैयार है। शुरू करने के लिए सत्यापन पूरा करें।",
+   "title": "वेसाल में स्वागत है"
+  },
+  "account_rejected": {
+   "body": "{name} सत्यापित नहीं हुआ: {reason}",
+   "title": "सत्यापन अस्वीकृत"
+  },
+  "account_verified": {
+   "body": "{name} सत्यापित हो गया।",
+   "title": "खाता सत्यापित"
+  },
+  "authorization_activated": {
+   "body": "{representative} ने प्राधिकरण {number} स्वीकार किया।",
+   "title": "प्राधिकरण सक्रिय"
+  },
+  "authorization_declined": {
+   "body": "{supplier} ने अनुरोध {number} अस्वीकार किया।",
+   "title": "अनुरोध अस्वीकृत"
+  },
+  "authorization_expiring": {
+   "body": "प्राधिकरण {number} {date} को समाप्त होगा।",
+   "title": "प्राधिकरण समाप्त होने वाला"
+  },
+  "authorization_issued": {
+   "body": "{supplier} ने प्राधिकरण {number} जारी किया।",
+   "title": "प्राधिकरण आपकी स्वीकृति की प्रतीक्षा में"
+  },
+  "authorization_requested": {
+   "body": "{representative} ने प्राधिकरण माँगा ({number})।",
+   "title": "नया प्राधिकरण अनुरोध"
+  },
+  "authorization_status_changed": {
+   "body": "प्राधिकरण {number} अब {status} है।",
+   "title": "प्राधिकरण अपडेट"
+  },
+  "commission_paid": {
+   "body": "{supplier} ने SAR {amount} का भुगतान दर्ज किया।",
+   "title": "कमीशन भुगतान"
+  },
+  "commission_updated": {
+   "body": "आपका कमीशन SAR {amount} - स्थिति: {status}।",
+   "title": "कमीशन अपडेट"
+  },
+  "complaint_new": {
+   "body": "शिकायत {number}: {subject}",
+   "title": "नई शिकायत"
+  },
+  "complaint_reply": {
+   "body": "शिकायत {number} पर नया उत्तर।",
+   "title": "शिकायत का उत्तर"
+  },
+  "dispute_new": {
+   "body": "{representative} ने SAR {amount} कमीशन पर आपत्ति की।",
+   "title": "कमीशन पर नई आपत्ति"
+  },
+  "document_reviewed": {
+   "body": "आपके दस्तावेज़ की समीक्षा हुई।",
+   "title": "दस्तावेज़ समीक्षा"
+  },
+  "order_approval_required": {
+   "body": "{supplier} का ऑर्डर {number} (SAR {total}) स्वीकृति की प्रतीक्षा में।",
+   "title": "ऑर्डर को आपकी स्वीकृति चाहिए"
+  },
+  "order_approved": {
+   "body": "ऑर्डर {number} स्वीकृत हुआ।",
+   "title": "ऑर्डर स्वीकृत"
+  },
+  "order_cancelled": {
+   "body": "ऑर्डर {number} रद्द हुआ।",
+   "title": "ऑर्डर रद्द"
+  },
+  "order_changes_requested": {
+   "body": "{retailer} ने ऑर्डर {number} में बदलाव माँगा।",
+   "title": "बदलाव का अनुरोध"
+  },
+  "order_completed": {
+   "body": "ऑर्डर {number} पूर्ण हुआ।",
+   "title": "ऑर्डर पूर्ण"
+  },
+  "order_delivered": {
+   "body": "ऑर्डर {number} डिलीवर हुआ। प्राप्ति की पुष्टि करें।",
+   "title": "ऑर्डर डिलीवर"
+  },
+  "order_new": {
+   "body": "{retailer} से नया ऑर्डर {number}, SAR {total}।",
+   "title": "नया ऑर्डर"
+  },
+  "order_offer": {
+   "body": "{supplier} ने ऑर्डर {number} का प्रस्ताव भेजा: SAR {total}।",
+   "title": "नया मूल्य प्रस्ताव"
+  },
+  "order_out_for_delivery": {
+   "body": "ऑर्डर {number} डिलीवरी के लिए रवाना।",
+   "title": "ऑर्डर रास्ते में"
+  },
+  "order_preparing": {
+   "body": "ऑर्डर {number} तैयार हो रहा है।",
+   "title": "ऑर्डर तैयार हो रहा है"
+  },
+  "order_rejected": {
+   "body": "ऑर्डर {number} अस्वीकृत हुआ।",
+   "title": "ऑर्डर अस्वीकृत"
+  },
+  "order_updated": {
+   "body": "ऑर्डर {number} अपडेट हुआ।",
+   "title": "ऑर्डर अपडेट"
+  },
+  "rating_received": {
+   "body": "ऑर्डर {number} पर {stars}/5 मिला।",
+   "title": "नई रेटिंग"
+  },
+  "return_decided": {
+   "body": "वापसी {number}: {decision}।",
+   "title": "वापसी निर्णय"
+  },
+  "return_requested": {
+   "body": "{retailer} ने ऑर्डर {order} की वापसी {number} माँगी।",
+   "title": "वापसी अनुरोध"
+  },
+  "task_assigned": {
+   "body": "{supplier} से कार्य: {title}",
+   "title": "नया कार्य"
+  },
+  "team_invite": {
+   "body": "आपको {business} में {role} के रूप में जोड़ा गया।",
+   "title": "आपको जोड़ा गया"
+  }
+ },
+ "order_status": {
+  "approved": "स्वीकृत",
+  "awaiting_retailer_approval": "बदलाव पर दुकान की स्वीकृति की प्रतीक्षा",
+  "cancelled": "रद्द",
+  "completed": "पूर्ण",
+  "delivered": "डिलीवर हुआ",
+  "disputed": "विवाद में",
+  "draft": "मसौदा",
+  "fully_returned": "पूर्ण वापसी",
+  "new": "नया",
+  "out_for_delivery": "डिलीवरी के लिए रवाना",
+  "partially_returned": "आंशिक वापसी",
+  "pending_retailer_approval": "दुकान की स्वीकृति की प्रतीक्षा",
+  "preparing": "तैयारी में",
+  "quoted": "मूल्य प्रस्ताव प्रस्तुत",
+  "ready": "तैयार",
+  "rejected": "अस्वीकृत",
+  "supplier_review": "आपूर्तिकर्ता समीक्षा में"
+ },
+ "pdf": {
+  "approval": "स्वीकृति रिकॉर्ड",
+  "approved_at": "स्वीकृति समय",
+  "branch": "शाखा",
+  "buyer": "खरीदार",
+  "cr": "वाणिज्यिक पंजीकरण",
+  "date": "तिथि",
+  "delivery_fee": "डिलीवरी शुल्क",
+  "disclaimer": "यह दस्तावेज़ वेसाल प्लेटफ़ॉर्म द्वारा जारी ऑर्डर सारांश है, कर चालान नहीं। कर चालान आपूर्तिकर्ता ZATCA आवश्यकताओं के अनुसार जारी करता है। भुगतान दुकान और आपूर्तिकर्ता के बीच सीधे होता है।",
+  "discount": "छूट",
+  "fingerprint": "स्वीकृत संस्करण फ़िंगरप्रिंट",
+  "generated_at": "निर्माण तिथि",
+  "item": "उत्पाद",
+  "items": "आइटम",
+  "line_total": "कुल",
+  "method": "सत्यापन विधि",
+  "methods": {
+   "otp": "एसएमएस कोड",
+   "password": "पासवर्ड",
+   "session": "प्रमाणित सत्र"
+  },
+  "order_title": "क्रय आदेश सारांश",
+  "qty": "मात्रा",
+  "representative": "प्रतिनिधि",
+  "status": "स्थिति",
+  "subtotal": "उप-योग",
+  "supplier": "आपूर्तिकर्ता",
+  "total": "कुल देय",
+  "unit": "इकाई",
+  "unit_price": "इकाई मूल्य",
+  "vat": "मूल्य वर्धित कर",
+  "vat_number": "वैट संख्या",
+  "version": "संस्करण"
+ },
+ "reports": {
+  "by_city": "शहर के अनुसार",
+  "by_supplier": "आपूर्तिकर्ता के अनुसार",
+  "city": "शहर",
+  "commission": "कमीशन",
+  "orders": "ऑर्डर",
+  "over_time": "समय के साथ",
+  "period": "अवधि",
+  "pieces": "पीस",
+  "product": "उत्पाद",
+  "rep_title": "प्रतिनिधि प्रदर्शन रिपोर्ट",
+  "representative": "प्रतिनिधि",
+  "representatives": "प्रतिनिधि",
+  "retailer_title": "खरीद रिपोर्ट",
+  "supplier": "आपूर्तिकर्ता",
+  "supplier_title": "बिक्री रिपोर्ट",
+  "top_products": "शीर्ष उत्पाद",
+  "value": "मूल्य (SAR)"
+ },
+ "units": {
+  "carton": "कार्टन",
+  "piece": "पीस"
+ }
+}

@@ -74,7 +74,7 @@ class Settings(BaseSettings):
     ai_enabled: bool = True
     ai_provider: Literal["local", "anthropic", "none"] = "local"
     anthropic_api_key: str = ""
-    ai_model: str = "claude-sonnet-5-5"
+    ai_model: str = "claude-opus-5-5"
     ai_max_tokens: int = 1024
 
     # Commerce defaults

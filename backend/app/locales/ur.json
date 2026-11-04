@@ -1,0 +1,430 @@
+{
+ "ai": {
+  "summary": {
+   "avg_order": "اوسط آرڈر ویلیو {avg} ریال۔",
+   "customers": "{active} فعال اور {new} نئے گاہک۔",
+   "pending_new": "{count} نئے آرڈرز آپ کے جائزے کے منتظر ہیں۔",
+   "returns": "{value} ریال کی {count} واپسیاں۔",
+   "sales_total": "{orders} آرڈرز سے {sales} ریال کی فروخت۔",
+   "top_product": "سب سے زیادہ فروخت: {name} ({value} ریال)۔",
+   "top_rep": "بہترین نمائندہ: {name} ({value} ریال)۔"
+  }
+ },
+ "brand": {
+  "name": "وصال",
+  "tagline": "پورا بازار ایک رابطے میں"
+ },
+ "errors": {
+  "account_exists": "ان تفصیلات کے ساتھ اکاؤنٹ پہلے سے موجود ہے۔",
+  "account_locked": "ناکام کوششوں کی وجہ سے اکاؤنٹ {minutes} منٹ کے لیے مقفل ہے۔",
+  "account_suspended": "یہ اکاؤنٹ معطل ہے۔ سپورٹ سے رابطہ کریں۔",
+  "acquisition_not_found": "حصول کا ریکارڈ موجود نہیں۔",
+  "admin_only": "صرف پلیٹ فارم منتظمین کے لیے۔",
+  "agreement_required": "کمیشن معاہدہ منتخب کریں۔",
+  "ai_disabled": "اسسٹنٹ فی الحال غیر فعال ہے۔",
+  "ai_not_configured": "اے آئی فراہم کنندہ ترتیب نہیں دیا گیا۔",
+  "ai_provider_error": "اے آئی فراہم کنندہ کی خرابی۔",
+  "ai_provider_unreachable": "اے آئی فراہم کنندہ تک رسائی نہیں۔",
+  "ai_rate_limited": "اسسٹنٹ مصروف ہے۔ تھوڑی دیر بعد کوشش کریں۔",
+  "all_languages_required": "چاروں زبانوں میں نام درج کریں۔",
+  "already_linked": "نمائندہ پہلے سے منسلک ہے۔",
+  "already_member": "صارف پہلے سے رکن ہے۔",
+  "already_rated": "آپ پہلے ہی درجہ بندی کر چکے ہیں۔",
+  "approved_document_required": "کم از کم ایک دستاویز منظور ہونی چاہیے۔",
+  "approved_exceeds_requested": "منظور شدہ مقدار طلب سے زیادہ ہے۔",
+  "authorization_area_not_covered": "دکان کا علاقہ اختیار نامے سے باہر ہے۔",
+  "authorization_closed": "یہ اختیار نامہ بند ہے۔",
+  "authorization_exists": "ایک کھلا اختیار نامہ پہلے سے موجود ہے۔",
+  "authorization_invalid_transition": "اختیار نامے کی حالت یوں تبدیل نہیں ہو سکتی۔",
+  "authorization_missing": "اس سپلائر کے ساتھ کوئی درست اختیار نامہ نہیں۔",
+  "authorization_no_order_rights": "یہ اختیار نامہ آرڈر بنانے کی اجازت نہیں دیتا۔",
+  "authorization_not_effective": "اختیار نامہ آج مؤثر نہیں۔",
+  "authorization_product_not_covered": "کچھ پروڈکٹس اختیار نامے سے باہر ہیں۔",
+  "authorization_suspended": "یہ اختیار نامہ معطل ہے۔",
+  "authorization_terms_changed": "شرائط بدل گئی ہیں۔ دوبارہ جائزہ لیں۔",
+  "bad_request": "غلط درخواست۔",
+  "barcode_exists": "بارکوڈ کسی اور پروڈکٹ کا ہے۔",
+  "below_min_order_qty": "{product} کی کم از کم مقدار {min} ہے۔",
+  "below_min_order_value": "کم از کم آرڈر ویلیو {min} ریال ہے۔",
+  "branch_not_allowed": "آپ اس برانچ کے لیے آرڈر نہیں کر سکتے۔",
+  "branch_required": "پہلے برانچ شامل کریں۔",
+  "business_context_required": "وہ کاروبار منتخب کریں جس پر آپ کام کر رہے ہیں۔",
+  "business_exists": "یہ کاروبار پہلے سے رجسٹرڈ ہے۔",
+  "business_name_required": "کاروبار کا نام درکار ہے۔",
+  "business_suspended": "یہ کاروبار معطل ہے۔",
+  "cannot_complain_about_self": "آپ اپنے کاروبار کی شکایت نہیں کر سکتے۔",
+  "cannot_deactivate_primary_branch": "مرکزی برانچ غیر فعال نہیں ہو سکتی۔",
+  "cannot_disable_self": "آپ خود کو غیر فعال نہیں کر سکتے۔",
+  "cannot_grant_owner": "صرف مالک ہی مالک کا کردار دے سکتا ہے۔",
+  "cannot_revoke_own_admin": "آپ اپنا منتظم کردار واپس نہیں لے سکتے۔",
+  "cannot_suspend_self": "آپ خود کو معطل نہیں کر سکتے۔",
+  "cart_empty": "ٹوکری خالی ہے۔",
+  "category_exists": "زمرہ موجود ہے۔",
+  "code_attempts_exceeded": "بہت زیادہ کوششیں۔ نیا کوڈ طلب کریں۔",
+  "code_invalid": "کوڈ غلط یا ختم ہو چکا ہے۔",
+  "collection_exceeds_total": "وصول شدہ رقم آرڈر کی کل رقم سے زیادہ ہے۔",
+  "commission_closed": "کمیشن منسوخ ہے۔",
+  "commission_negative": "کمیشن منفی نہیں ہو سکتا۔",
+  "commission_not_approved": "ادائیگی سے پہلے کمیشن منظور ہونا چاہیے۔",
+  "commission_not_disputable": "اس کمیشن پر اعتراض نہیں ہو سکتا۔",
+  "commission_not_due": "کمیشن ابھی واجب نہیں۔",
+  "complaint_closed": "یہ شکایت بند ہے۔",
+  "conflict": "موجودہ ڈیٹا سے ٹکراؤ ہے۔",
+  "contact_verification_required": "آرڈر سے پہلے اپنا ای میل یا موبائل تصدیق کریں۔",
+  "cr_document_required": "تجارتی رجسٹریشن دستاویز اپلوڈ کریں۔",
+  "cr_number_required": "تجارتی رجسٹریشن نمبر درکار ہے۔",
+  "csrf_failed": "سیکیورٹی ٹوکن ختم ہو گیا۔ صفحہ دوبارہ لوڈ کریں۔",
+  "csv_encoding": "فائل UTF-8 میں ہونی چاہیے۔",
+  "csv_missing_columns": "غائب کالم: {columns}",
+  "customer_exists": "گاہک پہلے سے موجود ہے۔",
+  "customer_not_registered": "گاہک پلیٹ فارم پر رجسٹرڈ نہیں۔",
+  "default_language_required": "ڈیفالٹ زبان غیر فعال نہیں ہو سکتی۔",
+  "dispute_closed": "اعتراض بند ہے۔",
+  "dispute_exists": "ایک کھلا اعتراض موجود ہے۔",
+  "duplicate_coverage": "کوریج علاقہ دہرایا گیا۔",
+  "duplicate_items": "اشیاء دہرائی گئی ہیں۔",
+  "email_not_configured": "ای میل سروس فعال نہیں۔",
+  "email_required": "ای میل درکار ہے۔",
+  "error": "ایک خرابی پیش آئی۔",
+  "file_empty": "فائل خالی ہے۔",
+  "file_invalid_image": "تصویر غلط ہے۔",
+  "file_invalid_path": "فائل کا راستہ غلط ہے۔",
+  "file_too_large": "فائل {max_mb} ایم بی سے بڑی ہے۔",
+  "file_type_not_allowed": "فائل کی قسم کی اجازت نہیں۔",
+  "file_unsafe_content": "فائل میں غیر محفوظ مواد ہے۔",
+  "forbidden": "اجازت نہیں۔",
+  "id_document_required": "پہلے اپنا شناختی کارڈ یا اقامہ اپلوڈ کریں۔",
+  "identifier_required": "ای میل یا موبائل نمبر درج کریں۔",
+  "insufficient_stock": "{product} کا دستیاب اسٹاک: {available}",
+  "integration_unavailable": "بیرونی سروس دستیاب نہیں۔",
+  "internal_error": "غیر متوقع خرابی۔ اسے ریکارڈ کر لیا گیا ہے۔",
+  "invalid_agreement": "کمیشن معاہدہ غلط ہے۔",
+  "invalid_branch": "برانچ غلط ہے۔",
+  "invalid_brand": "برانڈ غلط ہے۔",
+  "invalid_business_context": "کاروباری سیاق غلط ہے۔",
+  "invalid_category": "زمرہ غلط ہے۔",
+  "invalid_city": "شہر غلط ہے۔",
+  "invalid_credentials": "سائن ان کی تفصیلات غلط ہیں۔",
+  "invalid_customer": "گاہک غلط ہے۔",
+  "invalid_dates": "تاریخیں غلط ہیں۔",
+  "invalid_delivery_days": "ڈیلیوری کے دن غلط ہیں۔",
+  "invalid_discount": "رعایت غلط ہے۔",
+  "invalid_document": "دستاویز غلط ہے۔",
+  "invalid_document_type": "دستاویز کی قسم غلط ہے۔",
+  "invalid_ids": "شناخت کنندہ غلط ہیں۔",
+  "invalid_item": "آرڈر کی لائن غلط ہے۔",
+  "invalid_items": "لائنیں غلط ہیں۔",
+  "invalid_manager": "منتخب مینیجر رکن نہیں۔",
+  "invalid_offer": "یہ پروڈکٹ اس سپلائر سے دستیاب نہیں۔",
+  "invalid_order": "آرڈر غلط ہے۔",
+  "invalid_payment": "ادائیگی کی تفصیلات غلط ہیں۔",
+  "invalid_permissions": "اجازتیں غلط ہیں۔",
+  "invalid_phone": "موبائل نمبر غلط ہے۔",
+  "invalid_product": "پروڈکٹ غلط ہے۔",
+  "invalid_quantity": "مقدار غلط ہے۔",
+  "invalid_reason": "وجہ غلط ہے۔",
+  "invalid_representative": "نمائندہ غلط ہے۔",
+  "invalid_retailer": "دکان غلط ہے۔",
+  "invalid_role": "کردار غلط ہے۔",
+  "invalid_setting": "ترتیب غلط ہے۔",
+  "invalid_subscription": "سبسکرپشن غلط ہے۔",
+  "invalid_supplier": "سپلائر دستیاب نہیں۔",
+  "invalid_timezone": "ٹائم زون غلط ہے۔",
+  "invalid_transition": "موجودہ حالت میں یہ عمل ممکن نہیں۔",
+  "last_owner": "آخری مالک کو ہٹایا نہیں جا سکتا۔",
+  "method_not_allowed": "طریقہ کار کی اجازت نہیں۔",
+  "mfa_already_enabled": "دو مرحلہ تصدیق پہلے سے فعال ہے۔",
+  "mfa_invalid": "تصدیقی کوڈ غلط ہے۔",
+  "mfa_required": "دو مرحلہ تصدیقی کوڈ درکار ہے۔",
+  "mfa_setup_required": "انتظامیہ تک رسائی کے لیے دو مرحلہ تصدیق فعال کریں۔",
+  "name_required": "نام درکار ہے۔",
+  "no_business_context": "آپ سے کوئی کاروباری اکاؤنٹ منسلک نہیں۔",
+  "no_changes": "کوئی تبدیلی نہیں۔",
+  "no_pending_approval": "کوئی زیر التواء منظوری نہیں۔",
+  "no_pending_offer": "کوئی زیر التواء پیشکش نہیں۔",
+  "no_target_for_channel": "اس چینل کے لیے رابطہ موجود نہیں۔",
+  "not_a_member": "آپ اس کاروبار کے رکن نہیں۔",
+  "not_a_representative": "یہ نمائندے کا اکاؤنٹ نہیں۔",
+  "not_allowed": "اجازت نہیں۔",
+  "not_found": "نہیں ملا۔",
+  "nothing_to_verify": "تصدیق کے لیے کچھ نہیں۔",
+  "offer_exists": "یہ پروڈکٹ پہلے سے آپ کی فہرست میں ہے۔",
+  "offer_expired": "پیشکش ختم ہو چکی ہے۔",
+  "offer_unavailable": "دستیاب نہیں: {product}",
+  "only_store_can_dispute": "صرف دکان تنازعہ کھول سکتی ہے۔",
+  "order_empty": "آرڈر خالی ہے۔",
+  "order_has_no_representative": "اس آرڈر میں کوئی نمائندہ نہیں۔",
+  "order_invalid_transition": "آرڈر کی موجودہ حالت میں یہ عمل ممکن نہیں۔",
+  "order_not_collectable": "اس آرڈر کی وصولی درج نہیں ہو سکتی۔",
+  "order_not_disputable": "اس آرڈر پر تنازعہ نہیں کھولا جا سکتا۔",
+  "order_not_editable": "آرڈر اب تبدیل نہیں ہو سکتا۔",
+  "order_not_rateable": "آرڈر مکمل ہونے کے بعد درجہ بندی کریں۔",
+  "order_not_returnable": "یہ آرڈر واپس نہیں ہو سکتا۔",
+  "order_required": "آرڈر منتخب کریں۔",
+  "order_version_changed": "آپ کے کھولنے کے بعد آرڈر بدل گیا۔ تازہ ورژن دیکھ کر منظوری دیں۔",
+  "otp_required": "اپنے موبائل پر بھیجا گیا کوڈ درج کریں۔",
+  "permission_denied": "آپ کو اس عمل کی اجازت نہیں۔",
+  "phone_required": "موبائل نمبر درکار ہے۔",
+  "phone_verification_required": "موبائل نمبر کی تصدیق ضروری ہے۔",
+  "product_identity_locked": "اس پروڈکٹ کا بنیادی ڈیٹا کوئی اور سنبھالتا ہے۔",
+  "push_library_missing": "پش لائبریری موجود نہیں۔",
+  "push_not_configured": "پش اطلاعات فعال نہیں۔",
+  "rate_limited": "بہت زیادہ کوششیں۔ {retry_after} سیکنڈ بعد کوشش کریں۔",
+  "reason_required": "وجہ بتائیں۔",
+  "received_exceeds_ordered": "موصولہ مقدار آرڈر سے زیادہ ہے۔",
+  "representative_inactive": "نمائندے کا اکاؤنٹ غیر فعال ہے۔",
+  "representative_not_linked": "یہ نمائندہ آپ کی کمپنی سے منسلک نہیں۔",
+  "representative_not_verified": "نمائندے کا اکاؤنٹ پہلے تصدیق شدہ ہونا چاہیے۔",
+  "request_exists": "آپ کی اس قسم کی درخواست کھلی ہے۔",
+  "resolution_required": "حل لکھیں۔",
+  "return_exceeds_received": "واپسی موصولہ مقدار سے زیادہ ہے: {product}",
+  "return_invalid_transition": "اس واپسی کی حالت میں یہ ممکن نہیں۔",
+  "return_window_closed": "واپسی کی مدت ({days} دن) ختم ہو گئی۔",
+  "role_exists": "اس کوڈ کے ساتھ کردار موجود ہے۔",
+  "role_missing": "سسٹم کردار موجود نہیں۔",
+  "sale_unit_required": "کم از کم ایک فروخت یونٹ منتخب کریں۔",
+  "single_representative_required": "ایک ہی نمائندے کے کمیشن منتخب کریں۔",
+  "sms_not_configured": "ایس ایم ایس سروس فعال نہیں۔",
+  "supplier_not_covering_area": "سپلائر اس برانچ کے علاقے میں ڈیلیور نہیں کرتا۔",
+  "terms_required": "شرائط اور رازداری کی پالیسی قبول کرنا ضروری ہے۔",
+  "too_many_codes": "بہت زیادہ کوڈ طلب کیے گئے۔ بعد میں کوشش کریں۔",
+  "too_many_files": "بہت زیادہ فائلیں۔",
+  "too_many_items": "بہت زیادہ اشیاء۔",
+  "unauthorized": "براہ کرم سائن ان کریں۔",
+  "unit_not_allowed": "فروخت یونٹ دستیاب نہیں: {product}",
+  "validation_failed": "براہ کرم درج کردہ ڈیٹا چیک کریں۔",
+  "verification_already_submitted": "تصدیق پہلے ہی جمع ہو چکی ہے۔",
+  "visit_already_in_progress": "آپ کا ایک وزٹ جاری ہے۔ پہلے اسے ختم کریں۔",
+  "visit_invalid_transition": "اس وزٹ کے لیے ممکن نہیں۔",
+  "weak_password": "کمزور پاس ورڈ: کم از کم 10 حروف، بڑے/چھوٹے حروف، ہندسے یا علامات۔",
+  "whatsapp_not_configured": "واٹس ایپ سروس فعال نہیں۔"
+ },
+ "messages": {
+  "login_otp": {
+   "body": "وصال سائن ان کوڈ: {code}۔ کسی کو نہ بتائیں۔",
+   "subject": "سائن ان کوڈ"
+  },
+  "order_approval": {
+   "body": "وصال آرڈر منظوری کوڈ: {code}",
+   "subject": "آرڈر منظوری کوڈ"
+  },
+  "reset_password": {
+   "body": "پاس ورڈ ری سیٹ کرنے کے لیے لنک کھولیں:\n{link}\nیا کوڈ: {code}\nاگر آپ نے درخواست نہیں کی تو نظر انداز کریں۔",
+   "subject": "پاس ورڈ ری سیٹ"
+  },
+  "verify_email": {
+   "body": "آپ کا تصدیقی کوڈ: {code}\n{minutes} منٹ کے لیے درست۔ کسی کو نہ بتائیں۔",
+   "subject": "وصال ای میل تصدیقی کوڈ"
+  },
+  "verify_phone": {
+   "body": "وصال تصدیقی کوڈ: {code} ({minutes} منٹ)",
+   "subject": "وصال کوڈ"
+  }
+ },
+ "notifications": {
+  "account_registered": {
+   "body": "{name}، آپ کا اکاؤنٹ تیار ہے۔ شروع کرنے کے لیے تصدیق مکمل کریں۔",
+   "title": "وصال میں خوش آمدید"
+  },
+  "account_rejected": {
+   "body": "{name} کی تصدیق نہیں ہوئی: {reason}",
+   "title": "تصدیق مسترد"
+  },
+  "account_verified": {
+   "body": "{name} کی تصدیق ہو گئی۔",
+   "title": "اکاؤنٹ تصدیق شدہ"
+  },
+  "authorization_activated": {
+   "body": "{representative} نے اختیار نامہ {number} قبول کیا۔",
+   "title": "اختیار نامہ فعال"
+  },
+  "authorization_declined": {
+   "body": "{supplier} نے درخواست {number} مسترد کی۔",
+   "title": "درخواست مسترد"
+  },
+  "authorization_expiring": {
+   "body": "اختیار نامہ {number} {date} کو ختم ہوگا۔",
+   "title": "اختیار نامہ ختم ہونے والا"
+  },
+  "authorization_issued": {
+   "body": "{supplier} نے اختیار نامہ {number} جاری کیا۔",
+   "title": "اختیار نامہ آپ کی منظوری کا منتظر"
+  },
+  "authorization_requested": {
+   "body": "{representative} نے اختیار نامہ طلب کیا ({number})۔",
+   "title": "نئی اختیار نامہ درخواست"
+  },
+  "authorization_status_changed": {
+   "body": "اختیار نامہ {number} اب {status} ہے۔",
+   "title": "اختیار نامے میں تبدیلی"
+  },
+  "commission_paid": {
+   "body": "{supplier} نے {amount} ریال کی ادائیگی درج کی۔",
+   "title": "کمیشن ادا"
+  },
+  "commission_updated": {
+   "body": "آپ کا کمیشن {amount} ریال - حالت: {status}۔",
+   "title": "کمیشن اپڈیٹ"
+  },
+  "complaint_new": {
+   "body": "شکایت {number}: {subject}",
+   "title": "نئی شکایت"
+  },
+  "complaint_reply": {
+   "body": "شکایت {number} پر نیا جواب۔",
+   "title": "شکایت کا جواب"
+  },
+  "dispute_new": {
+   "body": "{representative} نے {amount} ریال کمیشن پر اعتراض کیا۔",
+   "title": "کمیشن پر نیا اعتراض"
+  },
+  "document_reviewed": {
+   "body": "آپ کی دستاویز کا جائزہ لیا گیا۔",
+   "title": "دستاویز کا جائزہ"
+  },
+  "order_approval_required": {
+   "body": "{supplier} کا آرڈر {number} ({total} ریال) منظوری کا منتظر ہے۔",
+   "title": "آرڈر آپ کی منظوری کا منتظر"
+  },
+  "order_approved": {
+   "body": "آرڈر {number} منظور ہو گیا۔",
+   "title": "آرڈر منظور"
+  },
+  "order_cancelled": {
+   "body": "آرڈر {number} منسوخ ہوا۔",
+   "title": "آرڈر منسوخ"
+  },
+  "order_changes_requested": {
+   "body": "{retailer} نے آرڈر {number} میں تبدیلی کی درخواست کی۔",
+   "title": "تبدیلی کی درخواست"
+  },
+  "order_completed": {
+   "body": "آرڈر {number} مکمل ہو گیا۔",
+   "title": "آرڈر مکمل"
+  },
+  "order_delivered": {
+   "body": "آرڈر {number} ڈیلیور ہو گیا۔ وصولی کی تصدیق کریں۔",
+   "title": "آرڈر ڈیلیور"
+  },
+  "order_new": {
+   "body": "{retailer} سے نیا آرڈر {number}، {total} ریال۔",
+   "title": "نیا آرڈر"
+  },
+  "order_offer": {
+   "body": "{supplier} نے آرڈر {number} کی پیشکش بھیجی: {total} ریال۔",
+   "title": "نئی قیمت کی پیشکش"
+  },
+  "order_out_for_delivery": {
+   "body": "آرڈر {number} ڈیلیوری کے لیے روانہ۔",
+   "title": "آرڈر راستے میں"
+  },
+  "order_preparing": {
+   "body": "آرڈر {number} تیار ہو رہا ہے۔",
+   "title": "آرڈر تیاری میں"
+  },
+  "order_rejected": {
+   "body": "آرڈر {number} مسترد ہوا۔",
+   "title": "آرڈر مسترد"
+  },
+  "order_updated": {
+   "body": "آرڈر {number} اپڈیٹ ہوا۔",
+   "title": "آرڈر اپڈیٹ"
+  },
+  "rating_received": {
+   "body": "آرڈر {number} پر {stars}/5 ملا۔",
+   "title": "نئی درجہ بندی"
+  },
+  "return_decided": {
+   "body": "واپسی {number}: {decision}۔",
+   "title": "واپسی کا فیصلہ"
+  },
+  "return_requested": {
+   "body": "{retailer} نے آرڈر {order} کی واپسی {number} طلب کی۔",
+   "title": "واپسی کی درخواست"
+  },
+  "task_assigned": {
+   "body": "{supplier} کی طرف سے کام: {title}",
+   "title": "نیا کام"
+  },
+  "team_invite": {
+   "body": "آپ کو {business} میں بطور {role} شامل کیا گیا۔",
+   "title": "آپ کو شامل کیا گیا"
+  }
+ },
+ "order_status": {
+  "approved": "منظور شدہ",
+  "awaiting_retailer_approval": "تبدیلی پر دکان کی منظوری کا انتظار",
+  "cancelled": "منسوخ",
+  "completed": "مکمل",
+  "delivered": "ڈیلیور ہو گیا",
+  "disputed": "تنازعہ میں",
+  "draft": "مسودہ",
+  "fully_returned": "مکمل واپسی",
+  "new": "نیا",
+  "out_for_delivery": "ڈیلیوری کے لیے روانہ",
+  "partially_returned": "جزوی واپسی",
+  "pending_retailer_approval": "دکان کی منظوری کا انتظار",
+  "preparing": "تیاری میں",
+  "quoted": "قیمت کی پیشکش جمع",
+  "ready": "تیار",
+  "rejected": "مسترد",
+  "supplier_review": "سپلائر کے جائزے میں"
+ },
+ "pdf": {
+  "approval": "منظوری کا ریکارڈ",
+  "approved_at": "منظوری کا وقت",
+  "branch": "برانچ",
+  "buyer": "خریدار",
+  "cr": "تجارتی رجسٹریشن",
+  "date": "تاریخ",
+  "delivery_fee": "ڈیلیوری فیس",
+  "disclaimer": "یہ دستاویز وصال پلیٹ فارم کا آرڈر خلاصہ ہے، ٹیکس انوائس نہیں۔ ٹیکس انوائس سپلائر ZATCA کے تقاضوں کے مطابق جاری کرتا ہے۔ ادائیگی دکان اور سپلائر کے درمیان براہ راست ہوتی ہے۔",
+  "discount": "رعایت",
+  "fingerprint": "منظور شدہ ورژن کا فنگر پرنٹ",
+  "generated_at": "تیاری کی تاریخ",
+  "item": "پروڈکٹ",
+  "items": "اشیاء",
+  "line_total": "کل",
+  "method": "تصدیق کا طریقہ",
+  "methods": {
+   "otp": "ایس ایم ایس کوڈ",
+   "password": "پاس ورڈ",
+   "session": "تصدیق شدہ سیشن"
+  },
+  "order_title": "خریداری آرڈر کا خلاصہ",
+  "qty": "مقدار",
+  "representative": "نمائندہ",
+  "status": "حالت",
+  "subtotal": "ذیلی کل",
+  "supplier": "سپلائر",
+  "total": "کل واجب الادا",
+  "unit": "یونٹ",
+  "unit_price": "فی یونٹ قیمت",
+  "vat": "ویلیو ایڈڈ ٹیکس",
+  "vat_number": "وی اے ٹی نمبر",
+  "version": "ورژن"
+ },
+ "reports": {
+  "by_city": "شہر کے لحاظ سے",
+  "by_supplier": "سپلائر کے لحاظ سے",
+  "city": "شہر",
+  "commission": "کمیشن",
+  "orders": "آرڈرز",
+  "over_time": "وقت کے ساتھ",
+  "period": "مدت",
+  "pieces": "عدد",
+  "product": "پروڈکٹ",
+  "rep_title": "نمائندہ کارکردگی رپورٹ",
+  "representative": "نمائندہ",
+  "representatives": "نمائندے",
+  "retailer_title": "خریداری رپورٹ",
+  "supplier": "سپلائر",
+  "supplier_title": "سیلز رپورٹ",
+  "top_products": "سرفہرست پروڈکٹس",
+  "value": "قیمت (ریال)"
+ },
+ "units": {
+  "carton": "کارٹن",
+  "piece": "عدد"
+ }
+}

@@ -1,0 +1,430 @@
+{
+ "ai": {
+  "summary": {
+   "avg_order": "متوسط قيمة الطلب {avg} ريال.",
+   "customers": "{active} عميل نشط و{new} عميل جديد.",
+   "pending_new": "{count} طلبات جديدة بانتظار مراجعتك.",
+   "returns": "{count} مرتجعات بقيمة {value} ريال.",
+   "sales_total": "المبيعات {sales} ريال من {orders} طلب.",
+   "top_product": "الأعلى مبيعاً: {name} ({value} ريال).",
+   "top_rep": "أفضل مندوب: {name} ({value} ريال)."
+  }
+ },
+ "brand": {
+  "name": "وِصال",
+  "tagline": "كل السوق في اتصال واحد"
+ },
+ "errors": {
+  "account_exists": "يوجد حساب بهذه البيانات.",
+  "account_locked": "تم قفل الحساب مؤقتاً لمدة {minutes} دقيقة بسبب محاولات فاشلة.",
+  "account_suspended": "الحساب موقوف. تواصل مع الدعم.",
+  "acquisition_not_found": "لا يوجد سجل اكتساب.",
+  "admin_only": "هذه الصفحة لإدارة المنصة فقط.",
+  "agreement_required": "اختر اتفاقية عمولة.",
+  "ai_disabled": "المساعد الذكي معطل حالياً.",
+  "ai_not_configured": "مزود الذكاء الاصطناعي غير مهيأ.",
+  "ai_provider_error": "خطأ من مزود الذكاء الاصطناعي.",
+  "ai_provider_unreachable": "تعذر الوصول لمزود الذكاء الاصطناعي.",
+  "ai_rate_limited": "المساعد مشغول. حاول بعد قليل.",
+  "all_languages_required": "أدخل الاسم باللغات الأربع.",
+  "already_linked": "المندوب مرتبط بشركتك.",
+  "already_member": "المستخدم عضو مسبقاً.",
+  "already_rated": "قيّمت هذا الطلب مسبقاً.",
+  "approved_document_required": "يجب اعتماد مستند واحد على الأقل.",
+  "approved_exceeds_requested": "الكمية المعتمدة أكبر من المطلوبة.",
+  "authorization_area_not_covered": "منطقة المحل خارج نطاق التفويض.",
+  "authorization_closed": "التفويض منتهٍ أو ملغى.",
+  "authorization_exists": "يوجد تفويض قائم مع هذه الجهة.",
+  "authorization_invalid_transition": "لا يمكن تغيير حالة التفويض بهذا الشكل.",
+  "authorization_missing": "لا يوجد تفويض ساري مع هذا المورد.",
+  "authorization_no_order_rights": "التفويض لا يسمح بإنشاء طلبات.",
+  "authorization_not_effective": "التفويض غير ساري في هذا التاريخ.",
+  "authorization_product_not_covered": "بعض المنتجات خارج نطاق التفويض.",
+  "authorization_suspended": "التفويض موقوف.",
+  "authorization_terms_changed": "تغيرت شروط التفويض. راجعها مجدداً.",
+  "bad_request": "طلب غير صالح.",
+  "barcode_exists": "الباركود مستخدم لمنتج آخر.",
+  "below_min_order_qty": "الحد الأدنى لـ {product} هو {min} قطعة.",
+  "below_min_order_value": "الحد الأدنى لقيمة الطلب {min} ريال.",
+  "branch_not_allowed": "لا يمكنك الطلب لهذا الفرع.",
+  "branch_required": "أضف فرعاً أولاً.",
+  "business_context_required": "اختر المنشأة التي تعمل عليها.",
+  "business_exists": "المنشأة مسجلة مسبقاً.",
+  "business_name_required": "اسم المنشأة مطلوب.",
+  "business_suspended": "المنشأة موقوفة.",
+  "cannot_complain_about_self": "لا يمكن تقديم شكوى على منشأتك.",
+  "cannot_deactivate_primary_branch": "لا يمكن إيقاف الفرع الرئيسي.",
+  "cannot_disable_self": "لا يمكنك إيقاف حسابك.",
+  "cannot_grant_owner": "فقط المالك يمنح دور المالك.",
+  "cannot_revoke_own_admin": "لا يمكنك سحب صلاحية الإدارة من نفسك.",
+  "cannot_suspend_self": "لا يمكنك إيقاف حسابك.",
+  "cart_empty": "السلة فارغة.",
+  "category_exists": "التصنيف موجود.",
+  "code_attempts_exceeded": "تجاوزت عدد المحاولات. اطلب رمزاً جديداً.",
+  "code_invalid": "الرمز غير صحيح أو منتهي.",
+  "collection_exceeds_total": "المبلغ المحصل يتجاوز إجمالي الطلب.",
+  "commission_closed": "العمولة ملغاة.",
+  "commission_negative": "لا يمكن أن تكون العمولة سالبة.",
+  "commission_not_approved": "يجب اعتماد العمولة قبل الدفع.",
+  "commission_not_disputable": "لا يمكن الاعتراض على هذه العمولة.",
+  "commission_not_due": "العمولة غير مستحقة بعد.",
+  "complaint_closed": "الشكوى مغلقة.",
+  "conflict": "تعارض مع بيانات موجودة.",
+  "contact_verification_required": "وثّق بريدك أو جوالك قبل إرسال الطلبات.",
+  "cr_document_required": "ارفع مستند السجل التجاري.",
+  "cr_number_required": "رقم السجل التجاري مطلوب.",
+  "csrf_failed": "انتهت صلاحية الجلسة الأمنية. أعد تحميل الصفحة.",
+  "csv_encoding": "يجب أن يكون الملف بترميز UTF-8.",
+  "csv_missing_columns": "أعمدة ناقصة: {columns}",
+  "customer_exists": "العميل موجود في قائمتك.",
+  "customer_not_registered": "العميل غير مسجل في المنصة.",
+  "default_language_required": "لا يمكن تعطيل اللغة الافتراضية.",
+  "dispute_closed": "الاعتراض مغلق.",
+  "dispute_exists": "يوجد اعتراض مفتوح.",
+  "duplicate_coverage": "منطقة تغطية مكررة.",
+  "duplicate_items": "يوجد تكرار في المنتجات.",
+  "email_not_configured": "خدمة البريد غير مفعلة.",
+  "email_required": "البريد الإلكتروني مطلوب.",
+  "error": "حدث خطأ.",
+  "file_empty": "الملف فارغ.",
+  "file_invalid_image": "الصورة تالفة أو غير صالحة.",
+  "file_invalid_path": "مسار الملف غير صالح.",
+  "file_too_large": "حجم الملف يتجاوز {max_mb} ميغابايت.",
+  "file_type_not_allowed": "نوع الملف غير مسموح.",
+  "file_unsafe_content": "الملف يحتوي على محتوى غير آمن.",
+  "forbidden": "غير مسموح.",
+  "id_document_required": "ارفع صورة الهوية أو الإقامة أولاً.",
+  "identifier_required": "أدخل البريد الإلكتروني أو رقم الجوال.",
+  "insufficient_stock": "الكمية المتاحة من {product}: {available}",
+  "integration_unavailable": "الخدمة الخارجية غير متاحة حالياً.",
+  "internal_error": "خطأ غير متوقع. تم تسجيله وسنعالجه.",
+  "invalid_agreement": "اتفاقية العمولة غير صالحة.",
+  "invalid_branch": "الفرع غير صحيح.",
+  "invalid_brand": "العلامة التجارية غير صحيحة.",
+  "invalid_business_context": "سياق المنشأة غير صالح.",
+  "invalid_category": "التصنيف غير صحيح.",
+  "invalid_city": "المدينة غير صحيحة.",
+  "invalid_credentials": "بيانات الدخول غير صحيحة.",
+  "invalid_customer": "العميل غير صحيح.",
+  "invalid_dates": "التواريخ غير صحيحة.",
+  "invalid_delivery_days": "أيام التوصيل غير صحيحة.",
+  "invalid_discount": "الخصم غير صحيح.",
+  "invalid_document": "المستند غير صالح.",
+  "invalid_document_type": "نوع المستند غير صحيح.",
+  "invalid_ids": "معرّفات غير صحيحة.",
+  "invalid_item": "بند غير صحيح في الطلب.",
+  "invalid_items": "بنود غير صحيحة.",
+  "invalid_manager": "المدير المحدد ليس عضواً.",
+  "invalid_offer": "المنتج غير متاح لدى هذا المورد.",
+  "invalid_order": "الطلب غير صحيح.",
+  "invalid_payment": "بيانات الدفع غير صحيحة.",
+  "invalid_permissions": "صلاحيات غير صالحة.",
+  "invalid_phone": "رقم الجوال غير صحيح.",
+  "invalid_product": "المنتج غير صحيح.",
+  "invalid_quantity": "الكمية غير صحيحة.",
+  "invalid_reason": "السبب غير صحيح.",
+  "invalid_representative": "المندوب غير صالح.",
+  "invalid_retailer": "المحل غير صحيح.",
+  "invalid_role": "الدور غير صالح.",
+  "invalid_setting": "إعداد غير صالح.",
+  "invalid_subscription": "الاشتراك غير صالح.",
+  "invalid_supplier": "المورد غير متاح.",
+  "invalid_timezone": "المنطقة الزمنية غير صحيحة.",
+  "invalid_transition": "لا يمكن تنفيذ هذا الإجراء في الحالة الحالية.",
+  "last_owner": "لا يمكن إزالة آخر مالك للمنشأة.",
+  "method_not_allowed": "الطريقة غير مسموحة.",
+  "mfa_already_enabled": "التحقق الثنائي مفعّل مسبقاً.",
+  "mfa_invalid": "رمز التحقق غير صحيح.",
+  "mfa_required": "يلزم إدخال رمز التحقق الثنائي.",
+  "mfa_setup_required": "فعّل التحقق الثنائي للوصول إلى الإدارة.",
+  "name_required": "الاسم مطلوب.",
+  "no_business_context": "لا يوجد حساب منشأة مرتبط.",
+  "no_changes": "لا توجد تغييرات.",
+  "no_pending_approval": "لا توجد موافقة معلقة.",
+  "no_pending_offer": "لا يوجد عرض سعر معلق.",
+  "no_target_for_channel": "لا توجد وسيلة تواصل لهذه القناة.",
+  "not_a_member": "لست عضواً في هذه المنشأة.",
+  "not_a_representative": "هذا الحساب ليس حساب مندوب.",
+  "not_allowed": "غير مسموح.",
+  "not_found": "العنصر غير موجود.",
+  "nothing_to_verify": "لا يوجد ما يحتاج تحققاً.",
+  "offer_exists": "المنتج مضاف لقائمتك مسبقاً.",
+  "offer_expired": "انتهت صلاحية عرض السعر.",
+  "offer_unavailable": "المنتج غير متوفر: {product}",
+  "only_store_can_dispute": "المحل فقط يفتح نزاع الطلب.",
+  "order_empty": "الطلب فارغ.",
+  "order_has_no_representative": "لا يوجد مندوب في هذا الطلب.",
+  "order_invalid_transition": "لا يمكن تنفيذ هذا الإجراء على الطلب في حالته الحالية.",
+  "order_not_collectable": "لا يمكن تسجيل تحصيل لهذا الطلب.",
+  "order_not_disputable": "لا يمكن فتح نزاع على هذا الطلب.",
+  "order_not_editable": "لا يمكن تعديل الطلب الآن.",
+  "order_not_rateable": "يمكن التقييم بعد اكتمال الطلب.",
+  "order_not_returnable": "لا يمكن إرجاع هذا الطلب.",
+  "order_required": "حدد الطلب.",
+  "order_version_changed": "تغير الطلب منذ فتحته. راجع النسخة الأحدث ثم اعتمد.",
+  "otp_required": "أدخل رمز التحقق المرسل إلى جوالك.",
+  "permission_denied": "ليست لديك صلاحية لهذا الإجراء.",
+  "phone_required": "رقم الجوال مطلوب.",
+  "phone_verification_required": "يلزم توثيق رقم الجوال.",
+  "product_identity_locked": "بيانات المنتج الأساسية تديرها جهة أخرى.",
+  "push_library_missing": "مكتبة الإشعارات غير متوفرة.",
+  "push_not_configured": "الإشعارات الفورية غير مفعلة.",
+  "rate_limited": "محاولات كثيرة. حاول بعد {retry_after} ثانية.",
+  "reason_required": "اذكر السبب.",
+  "received_exceeds_ordered": "الكمية المستلمة أكبر من المطلوبة.",
+  "representative_inactive": "حساب المندوب غير نشط.",
+  "representative_not_linked": "المندوب غير مرتبط بشركتك.",
+  "representative_not_verified": "يجب توثيق حساب المندوب أولاً.",
+  "request_exists": "لديك طلب مفتوح من هذا النوع.",
+  "resolution_required": "اكتب قرار المعالجة.",
+  "return_exceeds_received": "كمية الإرجاع أكبر من المستلم: {product}",
+  "return_invalid_transition": "لا يمكن تنفيذ هذا الإجراء على طلب الإرجاع.",
+  "return_window_closed": "انتهت مهلة الإرجاع ({days} أيام).",
+  "role_exists": "يوجد دور بهذا الرمز.",
+  "role_missing": "دور النظام غير موجود.",
+  "sale_unit_required": "اختر وحدة بيع واحدة على الأقل.",
+  "single_representative_required": "اختر عمولات مندوب واحد.",
+  "sms_not_configured": "خدمة الرسائل النصية غير مفعلة.",
+  "supplier_not_covering_area": "المورد لا يغطي منطقة هذا الفرع.",
+  "terms_required": "يجب قبول الشروط وسياسة الخصوصية.",
+  "too_many_codes": "طلبت رموزاً كثيرة. حاول لاحقاً.",
+  "too_many_files": "عدد الملفات كبير.",
+  "too_many_items": "عدد العناصر كبير.",
+  "unauthorized": "يلزم تسجيل الدخول.",
+  "unit_not_allowed": "وحدة البيع غير متاحة: {product}",
+  "validation_failed": "يرجى مراجعة البيانات المدخلة.",
+  "verification_already_submitted": "طلب التوثيق مُرسل مسبقاً.",
+  "visit_already_in_progress": "لديك زيارة جارية. أنهها أولاً.",
+  "visit_invalid_transition": "لا يمكن تنفيذ هذا الإجراء على الزيارة.",
+  "weak_password": "كلمة المرور ضعيفة: 10 أحرف على الأقل مع أحرف كبيرة وصغيرة وأرقام أو رموز.",
+  "whatsapp_not_configured": "خدمة واتساب غير مفعلة."
+ },
+ "messages": {
+  "login_otp": {
+   "body": "رمز الدخول إلى وصال: {code}. لا تشاركه.",
+   "subject": "رمز الدخول"
+  },
+  "order_approval": {
+   "body": "رمز اعتماد الطلب في وصال: {code}",
+   "subject": "رمز اعتماد الطلب"
+  },
+  "reset_password": {
+   "body": "لإعادة تعيين كلمة المرور استخدم الرابط:\n{link}\nأو الرمز: {code}\nإن لم تطلب ذلك فتجاهل الرسالة.",
+   "subject": "استعادة كلمة المرور"
+  },
+  "verify_email": {
+   "body": "رمز التوثيق: {code}\nصالح لمدة {minutes} دقيقة. لا تشاركه مع أحد.",
+   "subject": "رمز توثيق بريدك في وصال"
+  },
+  "verify_phone": {
+   "body": "رمز التوثيق في وصال: {code} (صالح {minutes} دقيقة)",
+   "subject": "رمز وصال"
+  }
+ },
+ "notifications": {
+  "account_registered": {
+   "body": "أهلاً {name}، تم إنشاء حسابك. أكمل التوثيق للبدء.",
+   "title": "مرحباً بك في وصال"
+  },
+  "account_rejected": {
+   "body": "لم يتم اعتماد {name}: {reason}",
+   "title": "تعذر توثيق الحساب"
+  },
+  "account_verified": {
+   "body": "تم اعتماد {name}. يمكنك الآن العمل في السوق.",
+   "title": "تم توثيق الحساب"
+  },
+  "authorization_activated": {
+   "body": "قبل {representative} التفويض {number}.",
+   "title": "تم تفعيل التفويض"
+  },
+  "authorization_declined": {
+   "body": "رفضت {supplier} طلب التفويض {number}.",
+   "title": "تم رفض طلب التفويض"
+  },
+  "authorization_expiring": {
+   "body": "التفويض {number} ينتهي في {date}.",
+   "title": "تفويض قارب على الانتهاء"
+  },
+  "authorization_issued": {
+   "body": "أصدرت {supplier} شروط التفويض {number}. راجعها واقبلها.",
+   "title": "تفويض بانتظار موافقتك"
+  },
+  "authorization_requested": {
+   "body": "{representative} يطلب تفويضاً ({number}).",
+   "title": "طلب تفويض جديد"
+  },
+  "authorization_status_changed": {
+   "body": "التفويض {number} أصبح: {status}.",
+   "title": "تحديث على التفويض"
+  },
+  "commission_paid": {
+   "body": "سجلت {supplier} دفع {amount} ريال.",
+   "title": "تم دفع العمولة"
+  },
+  "commission_updated": {
+   "body": "عمولتك {amount} ريال - الحالة: {status}.",
+   "title": "تحديث العمولة"
+  },
+  "complaint_new": {
+   "body": "شكوى {number}: {subject}",
+   "title": "شكوى جديدة"
+  },
+  "complaint_reply": {
+   "body": "يوجد رد جديد على الشكوى {number}.",
+   "title": "رد على الشكوى"
+  },
+  "dispute_new": {
+   "body": "اعترض {representative} على عمولة بقيمة {amount} ريال.",
+   "title": "اعتراض جديد على عمولة"
+  },
+  "document_reviewed": {
+   "body": "تمت مراجعة مستندك.",
+   "title": "مراجعة مستند"
+  },
+  "order_approval_required": {
+   "body": "الطلب {number} من {supplier} بقيمة {total} ريال بحاجة لموافقتك.",
+   "title": "طلب بانتظار موافقتك"
+  },
+  "order_approved": {
+   "body": "تم اعتماد الطلب {number}.",
+   "title": "تم اعتماد الطلب"
+  },
+  "order_cancelled": {
+   "body": "تم إلغاء الطلب {number}.",
+   "title": "تم إلغاء الطلب"
+  },
+  "order_changes_requested": {
+   "body": "طلب {retailer} تعديل الطلب {number}.",
+   "title": "طلب تعديل"
+  },
+  "order_completed": {
+   "body": "اكتمل الطلب {number}.",
+   "title": "اكتمل الطلب"
+  },
+  "order_delivered": {
+   "body": "تم تسليم الطلب {number}. أكد الاستلام.",
+   "title": "تم تسليم الطلب"
+  },
+  "order_new": {
+   "body": "طلب جديد {number} من {retailer} بقيمة {total} ريال.",
+   "title": "طلب جديد"
+  },
+  "order_offer": {
+   "body": "قدم {supplier} عرض سعر للطلب {number}: {total} ريال.",
+   "title": "عرض سعر جديد"
+  },
+  "order_out_for_delivery": {
+   "body": "خرج الطلب {number} للتوصيل.",
+   "title": "الطلب في الطريق"
+  },
+  "order_preparing": {
+   "body": "بدأ تجهيز الطلب {number}.",
+   "title": "الطلب قيد التجهيز"
+  },
+  "order_rejected": {
+   "body": "تم رفض الطلب {number}.",
+   "title": "تم رفض الطلب"
+  },
+  "order_updated": {
+   "body": "تم تحديث الطلب {number}.",
+   "title": "تحديث على الطلب"
+  },
+  "rating_received": {
+   "body": "حصلت على تقييم {stars}/5 للطلب {number}.",
+   "title": "تقييم جديد"
+  },
+  "return_decided": {
+   "body": "طلب الإرجاع {number}: {decision}.",
+   "title": "قرار الإرجاع"
+  },
+  "return_requested": {
+   "body": "طلب {retailer} إرجاع {number} على الطلب {order}.",
+   "title": "طلب إرجاع"
+  },
+  "task_assigned": {
+   "body": "مهمة من {supplier}: {title}",
+   "title": "مهمة جديدة"
+  },
+  "team_invite": {
+   "body": "تمت إضافتك إلى {business} بدور {role}.",
+   "title": "دعوة للانضمام"
+  }
+ },
+ "order_status": {
+  "approved": "معتمد",
+  "awaiting_retailer_approval": "بانتظار موافقة المحل على التعديل",
+  "cancelled": "ملغى",
+  "completed": "مكتمل",
+  "delivered": "تم التسليم",
+  "disputed": "قيد النزاع",
+  "draft": "مسودة",
+  "fully_returned": "مرتجع كامل",
+  "new": "جديد",
+  "out_for_delivery": "خرج للتوصيل",
+  "partially_returned": "مرتجع جزئي",
+  "pending_retailer_approval": "بانتظار موافقة المحل",
+  "preparing": "قيد التجهيز",
+  "quoted": "عرض سعر مقدم",
+  "ready": "جاهز",
+  "rejected": "مرفوض",
+  "supplier_review": "قيد مراجعة المورد"
+ },
+ "pdf": {
+  "approval": "سجل الموافقة",
+  "approved_at": "وقت الموافقة",
+  "branch": "الفرع",
+  "buyer": "المشتري",
+  "cr": "السجل التجاري",
+  "date": "التاريخ",
+  "delivery_fee": "رسوم التوصيل",
+  "disclaimer": "هذا المستند ملخص للطلب صادر عن منصة وصال ولا يعد فاتورة ضريبية. الفاتورة الضريبية يصدرها المورد وفق متطلبات هيئة الزكاة والضريبة والجمارك. الدفع يتم مباشرة بين المحل والمورد.",
+  "discount": "الخصم",
+  "fingerprint": "بصمة النسخة المعتمدة",
+  "generated_at": "تاريخ الإصدار",
+  "item": "المنتج",
+  "items": "البنود",
+  "line_total": "الإجمالي",
+  "method": "طريقة التحقق",
+  "methods": {
+   "otp": "رمز عبر الجوال",
+   "password": "كلمة المرور",
+   "session": "جلسة موثقة"
+  },
+  "order_title": "ملخص طلب شراء",
+  "qty": "الكمية",
+  "representative": "المندوب",
+  "status": "الحالة",
+  "subtotal": "المجموع الفرعي",
+  "supplier": "المورد",
+  "total": "الإجمالي المستحق",
+  "unit": "الوحدة",
+  "unit_price": "سعر الوحدة",
+  "vat": "ضريبة القيمة المضافة",
+  "vat_number": "الرقم الضريبي",
+  "version": "النسخة"
+ },
+ "reports": {
+  "by_city": "حسب المدينة",
+  "by_supplier": "حسب المورد",
+  "city": "المدينة",
+  "commission": "العمولة",
+  "orders": "الطلبات",
+  "over_time": "عبر الزمن",
+  "period": "الفترة",
+  "pieces": "القطع",
+  "product": "المنتج",
+  "rep_title": "تقرير أداء المندوب",
+  "representative": "المندوب",
+  "representatives": "أداء المندوبين",
+  "retailer_title": "تقرير المشتريات",
+  "supplier": "المورد",
+  "supplier_title": "تقرير المبيعات",
+  "top_products": "المنتجات الأعلى",
+  "value": "القيمة (ريال)"
+ },
+ "units": {
+  "carton": "كرتون",
+  "piece": "حبة"
+ }
+}
