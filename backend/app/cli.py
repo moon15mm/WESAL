@@ -3,6 +3,7 @@
     python -m app.cli seed-reference
     python -m app.cli create-admin --email admin@example.com --name "Ops Admin"
     python -m app.cli seed-demo            # demo environment only (DEMO_MODE=true)
+    python -m app.cli reset-demo --yes     # wipe + rebuild the demo database (DEMO_MODE=true only)
     python -m app.cli check-locales
 """
 from __future__ import annotations
@@ -73,6 +74,32 @@ def seed_demo(force: bool) -> None:
     run()
 
 
+def reset_demo(yes: bool) -> None:
+    """Drop every table in the DEMO database, migrate, and reseed reference + demo data."""
+    if settings.is_production or not settings.demo_mode:
+        raise SystemExit("reset-demo only runs with DEMO_MODE=true outside production")
+    if not yes:
+        raise SystemExit("this erases the demo database; re-run with --yes")
+    from alembic import command
+    from alembic.config import Config
+    from sqlalchemy import create_engine, text
+    import pathlib
+
+    owner = create_engine(settings.database_owner_url)
+    with owner.begin() as conn:
+        conn.execute(text("DROP SCHEMA public CASCADE"))
+        conn.execute(text("CREATE SCHEMA public"))
+    owner.dispose()
+    cfg = Config(str(pathlib.Path(__file__).resolve().parents[1] / "alembic.ini"))
+    cfg.set_main_option("script_location", str(pathlib.Path(__file__).resolve().parents[1] / "alembic"))
+    cfg.attributes["url"] = settings.database_owner_url
+    command.upgrade(cfg, "head")
+    seed_reference()
+    from app.seed.demo import seed_demo as run
+
+    run()
+
+
 def check_locales() -> None:
     from app.core.i18n import missing_keys
 
@@ -96,6 +123,8 @@ def main() -> None:
     p.add_argument("--password", help="avoid on shared shells; prompts or generates when omitted")
     d = sub.add_parser("seed-demo")
     d.add_argument("--force", action="store_true")
+    rd = sub.add_parser("reset-demo")
+    rd.add_argument("--yes", action="store_true")
     sub.add_parser("check-locales")
     args = parser.parse_args()
     if args.cmd == "seed-reference":
@@ -104,6 +133,8 @@ def main() -> None:
         create_admin(args.email, args.name, args.phone, args.password)
     elif args.cmd == "seed-demo":
         seed_demo(args.force)
+    elif args.cmd == "reset-demo":
+        reset_demo(args.yes)
     elif args.cmd == "check-locales":
         check_locales()
 
