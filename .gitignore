@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Runtime data
+backend/var/
+var/
+backups/
+*.log
+# Playwright
+frontend/test-results/
+frontend/playwright-report/
+# OS
+.DS_Store
