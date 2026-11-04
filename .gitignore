@@ -26,3 +26,5 @@ frontend/test-results/
 frontend/playwright-report/
 # OS
 .DS_Store
+# deploy state (release tags on the server)
+.deploy/

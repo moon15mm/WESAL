@@ -6,10 +6,10 @@ Nothing secret is committed to the repository.
 from __future__ import annotations
 
 from functools import lru_cache
-from typing import Literal
+from typing import Annotated, Literal
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -30,7 +30,7 @@ class Settings(BaseSettings):
 
     app_base_url: str = "http://localhost:3000"
     api_base_url: str = "http://localhost:8000"
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
     trusted_proxies: int = 1  # number of reverse proxies in front (for client IP resolution)
 
     cookie_domain: str | None = None
@@ -97,6 +97,10 @@ class Settings(BaseSettings):
     @classmethod
     def _split_origins(cls, v):
         if isinstance(v, str):
+            if v.strip().startswith("["):
+                import json
+
+                return json.loads(v)
             return [o.strip() for o in v.split(",") if o.strip()]
         return v
 

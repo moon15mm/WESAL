@@ -1,0 +1,168 @@
+# WESAL production stack (single VPS).
+#   cp .env.example .env   # fill every value (see DEPLOYMENT.md)
+#   ./scripts/deploy.sh    # builds, backs up, migrates, health-checks, rolls back on failure
+name: wesal
+
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "20m", max-file: "5" }
+
+x-backend: &backend
+  image: ${WESAL_BACKEND_IMAGE:-wesal-backend}:${WESAL_TAG:-latest}
+  env_file: .env
+  environment:
+    ENV: production
+    DATABASE_URL: postgresql+psycopg://wesal_app:${DB_APP_PASSWORD}@postgres:5432/wesal
+    DATABASE_OWNER_URL: postgresql+psycopg://wesal_owner:${DB_OWNER_PASSWORD}@postgres:5432/wesal
+    REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
+    STORAGE_DIR: /data/storage
+    COOKIE_SECURE: "true"
+    RATE_LIMIT_BACKEND: redis
+    APP_BASE_URL: https://${WESAL_DOMAIN}
+    API_BASE_URL: https://${WESAL_DOMAIN}
+    CORS_ORIGINS: https://${WESAL_DOMAIN}
+  volumes:
+    - storage:/data/storage
+  networks: [internal, egress]   # egress: SMTP / SMS / WhatsApp / AI provider APIs
+  restart: unless-stopped
+  depends_on:
+    postgres: { condition: service_healthy }
+    redis: { condition: service_healthy }
+  logging: *logging
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: [ALL]
+  read_only: true
+  tmpfs: [/tmp]
+
+services:
+  postgres:
+    image: ${POSTGRES_IMAGE:-postgres:16-alpine}
+    environment:
+      POSTGRES_DB: wesal
+      POSTGRES_USER: wesal_owner
+      POSTGRES_PASSWORD: ${DB_OWNER_PASSWORD}
+      DB_APP_PASSWORD: ${DB_APP_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./deploy/postgres-init:/docker-entrypoint-initdb.d:ro
+    networks: [internal]
+    restart: unless-stopped
+    shm_size: 256mb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wesal_owner -d wesal"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    logging: *logging
+    security_opt: ["no-new-privileges:true"]
+
+  redis:
+    image: ${REDIS_IMAGE:-redis:7-alpine}
+    command: ["sh", "-c", "exec redis-server --requirepass \"$$REDIS_PASSWORD\" --appendonly yes --maxmemory 256mb --maxmemory-policy noeviction"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    volumes: [redisdata:/data]
+    networks: [internal]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$$REDIS_PASSWORD\" --no-auth-warning ping | grep -q PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    logging: *logging
+    security_opt: ["no-new-privileges:true"]
+
+  # one-off: schema migrations + reference data (owner role). Run by scripts/deploy.sh
+  migrate:
+    <<: *backend
+    command: ["migrate"]
+    restart: "no"
+    profiles: [ops]
+
+  api:
+    <<: *backend
+    command: ["api"]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/api/v1/health/ready"]
+      interval: 15s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
+
+  worker:
+    <<: *backend
+    command: ["worker"]
+    healthcheck:
+      test: ["CMD-SHELL", "grep -qa app.workers.worker /proc/1/cmdline /proc/*/cmdline 2>/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  scheduler:
+    <<: *backend
+    command: ["scheduler"]
+    healthcheck:
+      test: ["CMD-SHELL", "grep -qa app.workers.scheduler /proc/1/cmdline /proc/*/cmdline 2>/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    image: ${WESAL_FRONTEND_IMAGE:-wesal-frontend}:${WESAL_TAG:-latest}
+    environment:
+      API_INTERNAL_URL: http://api:8000
+    networks: [internal]
+    restart: unless-stopped
+    depends_on:
+      api: { condition: service_healthy }
+    logging: *logging
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    read_only: true
+    tmpfs: [/tmp, /app/.next/cache]
+
+  nginx:
+    image: ${NGINX_IMAGE:-nginx:1.27-alpine}
+    ports: ["80:80", "443:443"]
+    environment:
+      WESAL_DOMAIN: ${WESAL_DOMAIN}
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx/conf.d
+    volumes:
+      - ./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deploy/nginx/templates:/etc/nginx/templates:ro
+      - ./deploy/nginx/snippets:/etc/nginx/snippets:ro
+      - certs:/etc/letsencrypt:ro
+      - acme:/var/www/acme:ro
+    networks: [internal, egress]
+    restart: unless-stopped
+    depends_on:
+      frontend: { condition: service_started }
+      api: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging: *logging
+
+  # TLS certificates (Let's Encrypt, HTTP-01 webroot). See DEPLOYMENT.md → "TLS".
+  certbot:
+    image: ${CERTBOT_IMAGE:-certbot/certbot:v3.0.1}
+    volumes: [certs:/etc/letsencrypt, acme:/var/www/acme]
+    entrypoint: ["/bin/sh", "-c", "trap exit TERM; while :; do certbot renew --webroot -w /var/www/acme --quiet; sleep 12h & wait $${!}; done"]
+    networks: [egress]
+    restart: unless-stopped
+    profiles: [tls]
+
+volumes:
+  pgdata:
+  redisdata:
+  storage:
+  certs:
+  acme:
+
+networks:
+  internal:
+    internal: true   # Postgres and Redis live only here: no route to or from the internet
+  egress:
