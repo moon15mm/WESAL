@@ -28,7 +28,7 @@ export default function AdminComplaints() {
     { key: "s", header: tc("subject"), cell: (c) => c.subject },
     { key: "k", header: tc("kind"), cell: (c) => <Badge tone={c.kind === "order_dispute" ? "danger" : "neutral"}>{tc(`kinds.${c.kind}`)}</Badge> },
     { key: "p", header: t("parties"), hideOnMobile: true, cell: (c) => `${c.raised_by_business?.name || "—"} → ${c.against_business?.name || c.against_representative?.display_name || "—"}` },
-    { key: "st", header: tc("status"), cell: (c) => <StatusBadge status={c.status} /> },
+    { key: "st", header: tc("status_label"), cell: (c) => <StatusBadge status={c.status} /> },
     { key: "d", header: tc("date"), hideOnMobile: true, cell: (c) => f.date(c.created_at) },
   ];
   return (
@@ -43,7 +43,7 @@ export default function AdminComplaints() {
             if (await run(() => api(`/admin/complaints/${open.id}`, { body }), { success: t("saved") })) { setOpen(null); qc.invalidateQueries({ queryKey: ["/admin/complaints"] }); }
           }}>{t("save")}</Button></>}>
           <p className="whitespace-pre-line text-sm">{open.description}</p>
-          {open.order && <div className="mt-3"><KV items={[[tc("order"), <span key="o" className="ltr">{open.order.number}</span>], [tc("status"), <StatusBadge key="s" status={open.order.status} />]]} /></div>}
+          {open.order && <div className="mt-3"><KV items={[[tc("order"), <span key="o" className="ltr">{open.order.number}</span>], [tc("status_label"), <StatusBadge key="s" status={open.order.status} />]]} /></div>}
           <div className="mt-4 max-h-56 space-y-2 overflow-y-auto">{open.messages.map((m) => <div key={m.id} className={cx("rounded-md p-2 text-sm", m.author_side === "admin" ? "bg-navy-50" : "bg-page")}><p className="text-xs text-muted">{tc(`sides.${m.author_side}`)} · {f.datetime(m.created_at)}</p>{m.body}</div>)}</div>
           <div className="mt-4 space-y-3">
             <Field label={t("message")}>{(id) => <Textarea id={id} value={v.message} onChange={(e) => setV({ ...v, message: e.target.value })} />}</Field>

@@ -34,7 +34,7 @@ export function AuthorizationTable({ rows, loading, side }: { rows?: Authorizati
     { key: "n", header: t("number"), cell: (a) => <span className="ltr font-semibold">{a.number}</span> },
     side === "rep" ? { key: "s", header: t("company"), cell: (a) => a.supplier.name } : { key: "r", header: t("representative"), cell: (a) => a.representative.display_name },
     { key: "type", header: t("type"), hideOnMobile: true, cell: (a) => t(`types.${a.type}`) },
-    { key: "status", header: t("status"), cell: (a) => <StatusBadge status={a.status} /> },
+    { key: "status", header: t("status_label"), cell: (a) => <StatusBadge status={a.status} /> },
     { key: "end", header: t("end_date"), cell: (a) => f.date(a.end_date) },
   ];
   return <DataTable columns={cols} rows={rows} loading={loading} rowKey={(a) => a.id} onRowClick={(a) => router.push(`/app/${side}/authorizations/${a.id}`)} />;

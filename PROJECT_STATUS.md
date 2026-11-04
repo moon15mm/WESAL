@@ -3,7 +3,7 @@
 > Living status file. Updated at every significant milestone so work can resume after any interruption.
 
 ## Current phase
-Phase 3/4 – Backend feature-complete (27 tests passing). Next: frontend (Next.js), brand assets, Docker, docs.
+Phase 4 – Backend & frontend feature-complete (backend 27 tests; frontend builds, 1746 i18n keys × 4 locales). Next: brand assets, legal docs, demo seed, Docker/Nginx, E2E, docs.
 
 ## Done
 - Environment inspected (Python 3.13, Node 22, PostgreSQL 16, Redis, Docker available; GitHub raw/Google Fonts blocked → fonts via npm @fontsource).
@@ -15,7 +15,6 @@ Phase 3/4 – Backend feature-complete (27 tests passing). Next: frontend (Next.
 - Backend locales (ar/en/ur/hi, 332 keys) with automated completeness test.
 
 ## Next
-- Frontend (Next.js 16 + next-intl + TanStack Query + Tailwind 4): marketing site, auth, store/rep/supplier/admin apps.
 - Brand assets (SVG/PNG), demo seed, legal docs, Docker/Nginx/deploy/backup scripts, docs, E2E tests.
 
 ## Fixed bugs (log)

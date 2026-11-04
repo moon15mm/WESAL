@@ -30,7 +30,7 @@ export default function SupplierReturns() {
     { key: "n", header: t("number"), cell: (r) => <span className="ltr font-semibold">{r.number}</span> },
     { key: "o", header: t("order"), cell: (r) => <span className="ltr">{r.order_number}</span> },
     { key: "r", header: t("reason"), cell: (r) => t(`reasons.${r.reason}`) },
-    { key: "s", header: t("status"), cell: (r) => <StatusBadge status={r.status} /> },
+    { key: "s", header: t("status_label"), cell: (r) => <StatusBadge status={r.status} /> },
     { key: "v", header: t("value"), numeric: true, cell: (r) => f.money(r.total_value) },
   ];
   return (

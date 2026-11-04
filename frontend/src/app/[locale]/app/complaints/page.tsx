@@ -34,7 +34,7 @@ export default function Complaints() {
     { key: "s", header: t("subject"), cell: (c) => c.subject },
     { key: "k", header: t("kind"), hideOnMobile: true, cell: (c) => t(`kinds.${c.kind}`) },
     { key: "side", header: t("side"), hideOnMobile: true, cell: (c) => (c.my_side ? t(`sides.${c.my_side}`) : "—") },
-    { key: "st", header: t("status"), cell: (c) => <StatusBadge status={c.status} /> },
+    { key: "st", header: t("status_label"), cell: (c) => <StatusBadge status={c.status} /> },
     { key: "d", header: t("date"), hideOnMobile: true, cell: (c) => f.date(c.created_at) },
   ];
   return (

@@ -95,7 +95,7 @@ function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
 }
 
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
-  const t = useTranslations("nav");
+  const tn = useTranslations("nav");
   const groups = useNav();
   return (
     <div className="flex h-full flex-col gap-5 overflow-y-auto p-4 scrollbar-thin">
@@ -104,7 +104,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       <nav className="flex-1 space-y-5">
         {groups.map((g) => (
           <div key={g.key}>
-            <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted/80">{t(`group.${g.key}`)}</p>
+            <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted/80">{tn(`group.${g.key}`)}</p>
             <div className="space-y-0.5">{g.items.map((i) => <NavLink key={i.href} item={i} onClick={onNavigate} />)}</div>
           </div>
         ))}
@@ -116,10 +116,10 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
 function NotificationsBell() {
   const { data } = useQuery({ queryKey: ["notif-count"], queryFn: () => api<{ unread: number }>("/notifications/unread-count"), refetchInterval: 45_000 });
-  const t = useTranslations("nav");
+  const tn = useTranslations("nav");
   const n = data?.unread || 0;
   return (
-    <Link href="/app/notifications" className="relative rounded-md p-2 text-ink hover:bg-navy-50" aria-label={t("notifications")} data-testid="bell">
+    <Link href="/app/notifications" className="relative rounded-md p-2 text-ink hover:bg-navy-50" aria-label={tn("notifications")} data-testid="bell">
       <Bell className="h-5 w-5" />
       {n > 0 && <span className="tabular absolute -top-0.5 end-0 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-danger px-1 text-[10px] font-bold text-white">{n > 99 ? "99+" : n}</span>}
     </Link>
