@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: wesal_test
+          POSTGRES_USER: wesal_owner
+          POSTGRES_PASSWORD: wesal_owner
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U wesal_owner" --health-interval 5s --health-retries 20
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    env:
+      TEST_DATABASE_URL: postgresql+psycopg://wesal_app:wesal_app@localhost:5432/wesal_test
+      TEST_DATABASE_OWNER_URL: postgresql+psycopg://wesal_owner:wesal_owner@localhost:5432/wesal_test
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements*.txt
+      - name: System libraries (libmagic, pango for PDFs)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libmagic1t64 libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0
+      - name: Runtime database role (RLS-restricted, not owner)
+        run: |
+          PGPASSWORD=wesal_owner psql -h localhost -U wesal_owner -d wesal_test -c \
+            "CREATE ROLE wesal_app LOGIN PASSWORD 'wesal_app' NOBYPASSRLS; GRANT CONNECT ON DATABASE wesal_test TO wesal_app;"
+      - run: pip install -r requirements.txt -r requirements-dev.txt
+      - run: python -m app.cli check-locales
+      - run: python -m pytest -q
+
+  frontend:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run check:i18n
+      - run: npx tsc --noEmit
+      - run: npx next build
+
+  images:
+    runs-on: ubuntu-24.04
+    needs: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t wesal-backend:ci backend/
+      - run: docker build -t wesal-frontend:ci frontend/
