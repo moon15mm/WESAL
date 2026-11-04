@@ -43,7 +43,9 @@ jobs:
         run: |
           PGPASSWORD=wesal_owner psql -h localhost -U wesal_owner -d wesal_test -c \
             "CREATE ROLE wesal_app LOGIN PASSWORD 'wesal_app' NOBYPASSRLS; GRANT CONNECT ON DATABASE wesal_test TO wesal_app;"
-      - run: pip install -r requirements.txt -r requirements-dev.txt
+      - run: pip install -r requirements.txt -r requirements-dev.txt pip-audit
+      - name: Dependency vulnerabilities
+        run: pip-audit -r requirements.txt
       - run: python -m app.cli check-locales
       - run: python -m pytest -q
 
@@ -60,6 +62,8 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
+      - name: Dependency vulnerabilities
+        run: npm audit --omit=dev
       - run: npm run check:i18n
       - run: npx tsc --noEmit
       - run: npx next build

@@ -178,6 +178,17 @@ def test_rls_blocks_cross_tenant_reads_at_database_level():
         set_rls_context(db, user_id=uuid.uuid4(), business_ids=[uuid.UUID(store.business_id)])
         assert db.execute(text("SELECT count(*) FROM orders WHERE id = :id"), {"id": oid}).scalar() == 1
         db.rollback()
+        # a rep-prepared order awaiting the store's approval is invisible to the supplier, even in raw SQL
+        rep = make_rep()
+        authorize(sup, rep)
+        pending = rep.post("/rep/orders", {"retailer_id": store.business_id, "supplier_id": sup.business_id,
+                                           "items": [{"offer_id": sup.offers[0]["id"], "quantity": 2}]}).json()
+        assert pending["status"] == "pending_retailer_approval"
+        set_rls_context(db, user_id=uuid.uuid4(), business_ids=[uuid.UUID(sup.business_id)])
+        assert db.execute(text("SELECT count(*) FROM orders WHERE id = :id"), {"id": pending["id"]}).scalar() == 0
+        assert db.execute(text("SELECT count(*) FROM order_items WHERE order_id = :id"), {"id": pending["id"]}).scalar() == 0
+        assert db.execute(text("SELECT count(*) FROM orders WHERE id = :id"), {"id": oid}).scalar() == 1
+        db.rollback()
         # audit rows cannot be read nor altered by the application role
         set_rls_context(db, user_id=uuid.uuid4(), business_ids=[uuid.UUID(store.business_id)])
         assert db.execute(text("SELECT count(*) FROM audit_logs")).scalar() == 0

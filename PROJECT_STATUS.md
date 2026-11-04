@@ -1,21 +1,38 @@
 # WESAL – Project Status
 
 > Living status file. Updated at every significant milestone so work can resume after any interruption.
+> Last update: 2026-11-04.
 
 ## Current phase
-Phase 4 – Backend & frontend feature-complete (backend 27 tests; frontend builds, 1746 i18n keys × 4 locales). Next: brand assets, legal docs, demo seed, Docker/Nginx, E2E, docs.
+**Phase 5 – Release candidate.** All modules implemented; backend 38 tests and browser E2E 20 tests green;
+production Docker stack deployed, rolled back and restored in an isolated environment. Remaining work depends on
+external accounts (VPS, domain, SMTP/SMS/WhatsApp/AI credentials) and on legal review.
 
-## Done
-- Environment inspected (Python 3.13, Node 22, PostgreSQL 16, Redis, Docker available; GitHub raw/Google Fonts blocked → fonts via npm @fontsource).
-- Backend skeleton (FastAPI, SQLAlchemy 2.1, Alembic), 83-table schema (migration 0001).
-- Security migration 0002: restricted runtime DB role, forced row-level security on tenant tables, append-only audit/history tables.
-- Core: config, sessions (opaque tokens, HMAC-hashed), CSRF double-submit, argon2id, TOTP MFA + recovery codes, OTP codes, rate limiting, secure uploads, audit log, i18n, RBAC catalog.
-- Auth module + tests.
-- Modules: businesses/branches/team/roles/documents/coverage, catalog (offers, brands, CSV import, price lists, promotions, marketplace, compare), reps (profile, docs, directory, company reps, tasks, targets), authorizations (+commission agreements, history, renewal), CRM (customers, notes, contacts, source changes, opportunities, discovery), visits, orders (carts, direct, rep orders + approval snapshots, offers, change approvals, fulfillment, delivery confirmation, collections, invoices), returns, commissions (engine, approval, payouts, disputes, adjustments), ratings, complaints/disputes, notifications (in-app + outbox), reports (CSV/XLSX/PDF), order PDF (ar/en/ur/hi), AI (local engine + Claude adapter), admin, privacy (PDPL export/deletion), worker + scheduler.
-- Backend locales (ar/en/ur/hi, 332 keys) with automated completeness test.
+## Status by area
 
-## Next
-- Brand assets (SVG/PNG), demo seed, legal docs, Docker/Nginx/deploy/backup scripts, docs, E2E tests.
+| Area | Status |
+|---|---|
+| Brand identity (logo set, app icon, favicon, splash, print, guidelines) | ✅ complete — `brand/` |
+| Auth (registration, OTP verification, login by email/phone, MFA, sessions, reset) | ✅ complete & tested |
+| Businesses, branches, team, custom roles, verification | ✅ complete & tested |
+| Catalog, offers, price lists, promotions, CSV import, market search & compare | ✅ complete & tested |
+| Representatives, rep marketplace, company reps, tasks, targets | ✅ complete & tested |
+| Authorizations + commission agreements + history + expiry | ✅ complete & tested |
+| CRM (customers, acquisition source, notes, contacts, opportunities), visits with consented location | ✅ complete & tested |
+| Order engine (17 states), store approval with snapshot hash, offers/changes, delivery, collections | ✅ complete & tested (API + UI) |
+| Returns, commission engine (hold, approval, payout evidence, disputes, adjustments) | ✅ complete & tested |
+| Ratings, complaints, notifications (in-app + outbox, preferences, dedupe) | ✅ complete & tested |
+| Reports & exports (CSV/XLSX/PDF, document language, RTL) | ✅ complete & tested |
+| AI assistant — local engine | ✅ complete & tested |
+| AI assistant — Claude adapter | ⚠️ implemented, tested with mocks only (no API key) |
+| Email (SMTP), SMS (Unifonic/Twilio), WhatsApp (Meta Cloud), Web Push | ⚠️ implemented, tested with mocks only (no accounts) |
+| Admin back-office (verification, users, orders, complaints, commissions, catalog, ratings, plans, ads, content, translations, settings, audit, system) | ✅ complete; crawled in the browser |
+| i18n ar/en/ur/hi, RTL/LTR, automated key checks | ✅ complete & tested |
+| Legal documents (10 policies, ar/en) | ✅ drafted & published in-app — ⚠️ **require review by a Saudi-licensed lawyer**; Urdu/Hindi fall back to ar/en |
+| Demo environment (fictional data via real API, `reset-demo`) | ✅ complete & tested |
+| Docker images, compose, Nginx/TLS, deploy + rollback, backups + restore | ✅ complete & tested locally — ⚠️ not yet on a real VPS / Let's Encrypt |
+| CI workflow | ⚠️ written, not yet executed on GitHub |
+| Subscriptions billing | ⚠️ plans/subscriptions are managed and displayed; no payment gateway (by design the platform holds no funds; billing of subscription fees is manual) |
 
 ## Fixed bugs (log)
 - RLS: INSERT…RETURNING on audit_logs failed (no SELECT policy) → implicit_returning disabled.
@@ -23,12 +40,23 @@ Phase 4 – Backend & frontend feature-complete (backend 27 tests; frontend buil
 - Order line identities lost when supplier quoted → build_items updates lines in place.
 - autoflush disabled caused stale reads → enabled.
 - Arabic PDF digits broken (Arabic subset font) → Latin font first in Arabic family stack.
+- Chart date labels bidi-reordered in RTL; supplier commission summary ignored hold-period commissions; KPI values truncated/wrapped.
+- `CORS_ORIGINS` env parsing crashed startup; Nginx stale upstream IPs after redeploy; Nginx failing without IPv6.
+- Backup depended on a running API container; scripts used `latest` instead of the deployed tag.
+- **Security:** suppliers could read unapproved rep orders at the SQL level → migration 0003.
 
 ## Decisions
-See ARCHITECTURE.md (to be written) – key ones:
-- Modular monolith; sync SQLAlchemy; transactional outbox + DB-polling worker instead of Celery (fewer moving parts, exactly-once enqueue with business change).
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Key ones:
+- Modular monolith; sync SQLAlchemy; transactional outbox + DB-polling worker instead of Celery (fewer moving parts, enqueue is atomic with the business change).
 - Server-side sessions (revocable, device list) instead of JWT.
-- Product identity (products) separated from supplier offers (supplier_products); size/flavour variants are distinct products (barcode identity), packaging levels in product_units.
+- Product identity (`products`) separated from supplier offers (`supplier_products`); variants are distinct products (barcode identity), packaging in `product_units`.
+- Tenant isolation in the database (RLS, non-owner runtime role), not only in the API.
+- Backend image on Ubuntu 24.04 LTS (Python 3.12): reproducible here and supported until 2029; tests pass on 3.12 and 3.13.
+- Demo data is generated by driving the real API, so it can never contain states the application would not produce.
 
-## External blockers
-- No VPS / domain / SMTP / SMS / WhatsApp / AI keys provided – integrations implemented behind adapters, tested with in-memory mocks only.
+## External blockers / next steps
+1. VPS + domain + DNS → run `docs/DEPLOYMENT.md` (Let's Encrypt, cron backups, uptime monitoring).
+2. SMTP account (required in production), SMS sender (CST-registered) and optionally WhatsApp/AI keys → smoke-test each live.
+3. Legal review of the 10 policy drafts; Urdu/Hindi translations of the legal texts if required.
+4. External penetration test; ClamAV for document uploads; log shipping/alerting.
+5. Push the CI workflow and confirm it passes on GitHub.
